@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/uni-mamma/static/css/main.964fdded.css",
+    "main.js": "/uni-mamma/static/js/main.c47cb9dd.js",
+    "static/js/787.031cb9ee.chunk.js": "/uni-mamma/static/js/787.031cb9ee.chunk.js",
+    "index.html": "/uni-mamma/index.html",
+    "main.964fdded.css.map": "/uni-mamma/static/css/main.964fdded.css.map",
+    "main.c47cb9dd.js.map": "/uni-mamma/static/js/main.c47cb9dd.js.map",
+    "787.031cb9ee.chunk.js.map": "/uni-mamma/static/js/787.031cb9ee.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.964fdded.css",
+    "static/js/main.c47cb9dd.js"
+  ]
+}
