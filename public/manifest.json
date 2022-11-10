@@ -37,7 +37,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/",
+  "start_url": "https://tecnico2mdi.github.io/uni-mamma/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#fafafa"
