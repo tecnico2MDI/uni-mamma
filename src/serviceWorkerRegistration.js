@@ -30,7 +30,6 @@ export function register(config) {
     }
 
     window.addEventListener('load', () => {
-      console.log("SUKA LOAD", process.env.PUBLIC_URL)
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
 
       if (isLocalhost) {
