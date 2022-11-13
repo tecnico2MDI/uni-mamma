@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {HashRouter, Route, Routes} from "react-router-dom";
 import Main from "./componets/Main";
 
 export const PATHS = {
@@ -11,11 +11,11 @@ function App() {
   return (
     <div className="App">
         This is APP
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path={PATHS.MAIN} element={<Main />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
