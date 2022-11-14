@@ -1,7 +1,8 @@
 import React from 'react';
-import './App.css';
 import {HashRouter, Route, Routes} from "react-router-dom";
 import Main from "./componets/Main";
+
+import s from  './App.module.scss';
 
 export const PATHS = {
   MAIN: "/",
@@ -9,7 +10,7 @@ export const PATHS = {
 
 function App() {
   return (
-    <div className="App">
+    <div className={s.App}>
         This is APP
       <HashRouter>
         <Routes>

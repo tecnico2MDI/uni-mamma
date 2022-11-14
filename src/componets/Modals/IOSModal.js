@@ -2,7 +2,6 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
-import './Styles/drawer.css'
 import img from '../../img/logoTrasparente.png'
 import IosShareIcon from '@mui/icons-material/IosShare';
 import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
@@ -10,12 +9,13 @@ import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
-import TimelineContent from '@mui/lab/TimelineContent';
-import TimelineDot from '@mui/lab/TimelineDot';
 import {Grid} from "@mui/material";
-import { timelineContentClasses } from "@mui/lab";
+import {timelineContentClasses} from "@mui/lab";
 import Tada from 'react-reveal/Tada';
-import Fade from 'react-reveal/Fade';
+
+
+import s from './Styles/Modal.module.scss'
+import {StyledTimelineContent, StyledTTimelineDot} from "../Styles/theme";
 
 const style = {
     position: 'absolute',
@@ -35,21 +35,19 @@ const IOSModal = () => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     return (
-        <div>
+        <div className={s.IosModalMain}>
             <Button onClick={handleOpen}>Open modal</Button>
             <Modal
                 open={open}
                 onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <Box sx={{color: '#ED1163', fontWeight: 'bold'}}>
+                    <Box className={s.mainTitle}>
                         Installare la App sul tuo Iphone
                     </Box>
 
                     <Grid container>
-                        <Grid xs={8} >
+                        <Grid xs={8}>
                             <Timeline position="left" sx={{
                                 [`& .${timelineContentClasses.root}`]: {
                                     flex: 1,
@@ -57,40 +55,32 @@ const IOSModal = () => {
                             }}>
                                 <TimelineItem position="left">
                                     <TimelineSeparator>
-                                        <TimelineDot  sx={{background: '#ED1163'}}>
-                                            <Fade>
-                                                <IosShareIcon/>
-                                            </Fade>
-                                        </TimelineDot>
-                                        <TimelineConnector />
+                                        <StyledTTimelineDot sx={{background: '#ED1163'}}>
+                                            <IosShareIcon className={s.icon}/>
+                                        </StyledTTimelineDot>
+                                        <TimelineConnector/>
                                     </TimelineSeparator>
-                                    <TimelineContent>Tocca</TimelineContent>
+                                    <StyledTimelineContent>Tocca</StyledTimelineContent>
                                 </TimelineItem>
                                 <TimelineItem>
                                     <TimelineSeparator>
-                                        <TimelineDot sx={{background: '#26BEB9'}}>
-                                            <Fade>
-                                                <AddBoxOutlinedIcon/>
-                                            </Fade>
-                                        </TimelineDot>
+                                        <StyledTTimelineDot>
+                                            <AddBoxOutlinedIcon className={s.icon}/>
+                                        </StyledTTimelineDot>
                                     </TimelineSeparator>
-                                    <TimelineContent>Aggiungi a Home</TimelineContent>
+                                    <StyledTimelineContent>Aggiungi a Home</StyledTimelineContent>
                                 </TimelineItem>
                             </Timeline>
                         </Grid>
                         <Grid xs={4}>
                             <Tada>
-                            <div className="imagineDrawer">
-
+                                <div className={s.imagineDrawer}>
                                     <img src={img} alt=""/>
-                                    <div className="title">Uni mamma</div>
-
-                            </div>
+                                    <div className={s.title}>Uni mamma</div>
+                                </div>
                             </Tada>
                         </Grid>
                     </Grid>
-
-
                 </Box>
             </Modal>
         </div>
