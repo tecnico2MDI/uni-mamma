@@ -8,7 +8,7 @@ import Timeline from "@mui/lab/Timeline";
 const theme = createTheme({
     palette: {
         error: {
-            light: "#ff7961",
+            light: "#26BFB9",
             main: "#f44336",
             dark: "#ba000d",
             contrastText: "#000"
@@ -30,7 +30,8 @@ const theme = createTheme({
         MuiButtonBase: {
             defaultProps: {},
             styleOverrides: {
-                root: {}
+                root: {
+                }
             }
         },
         MuiButton: {
@@ -42,17 +43,6 @@ const theme = createTheme({
             }
         },
 
-        MuiSelect: {
-            styleOverrides: {
-                select: {
-                    outline: "none",
-                    border: "none"
-                },
-                outlined: {
-                    outline: "none"
-                }
-            }
-        },
         MuiMenuItem: {
             styleOverrides: {
                 root: {
@@ -125,6 +115,11 @@ const theme = createTheme({
                         }
                     }
                 }
+            }
+        },
+        MuiBottomNavigationAction: {
+            styleOverrides: {
+
             }
         }
     }

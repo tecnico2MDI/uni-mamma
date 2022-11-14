@@ -1,6 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import img from '../../img/logoTrasparente.png'
 import IosShareIcon from '@mui/icons-material/IosShare';
@@ -13,15 +12,34 @@ import Tada from 'react-reveal/Tada';
 import {StyledBox, StyledTimeline, StyledTimelineContent, StyledTTimelineDot} from "../Styles/theme";
 
 import s from './Styles/Modal.module.scss'
+import {BottomNavigation, BottomNavigationAction} from "@material-ui/core";
+import Face4Icon from "@mui/icons-material/Face4";
+import ChildFriendlyIcon from "@mui/icons-material/ChildFriendly";
+import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
+import DownloadingIcon from "@mui/icons-material/Downloading";
 
 
 const IOSModal = () => {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(true);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const [selected, setSelected] = useState(0);
     return (
-        <div className={s.IosModalMain}>
-            <Button onClick={handleOpen}>Install APP</Button>
+        <div >
+            <BottomNavigation
+                value={selected}
+                onChange={(value, newValue) => {
+                    setSelected(newValue);
+                }}
+            >
+                <BottomNavigationAction  label="Mamma" icon={<Face4Icon/>} />
+                <BottomNavigationAction
+                    label="Bebe"
+                    icon={<ChildFriendlyIcon  />}
+                />
+                <BottomNavigationAction  label="Guida" icon={<ReceiptLongIcon />} />
+                <BottomNavigationAction onClick={handleOpen}  label="Aggiungi" icon={<DownloadingIcon  />} />
+            </BottomNavigation>
             <Modal
                 open={open}
                 onClose={handleClose}

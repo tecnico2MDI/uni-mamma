@@ -4,6 +4,7 @@ import Main from "./componets/Main";
 
 import s from  './App.module.scss';
 
+
 export const PATHS = {
   MAIN: "/",
 };
