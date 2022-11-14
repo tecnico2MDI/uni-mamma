@@ -1,13 +1,13 @@
 import React from 'react';
 import { isIOS, isAndroid } from "react-device-detect";
-import IOSModal from "./Modals/IOSModal";
-import AndroidModal from "./Modals/AndroidModal";
+import Android from "./Android";
+import Ios from "./Ios";
 
 const Main = () => {
     return (
         <div>
-            {isIOS && <IOSModal/>}
-            {isAndroid && <AndroidModal />}
+            {isIOS && <Ios/>}
+            {isAndroid && <Android />}
         </div>
     );
 };
