@@ -32,7 +32,7 @@ const IOSModal = () => {
                     </Box>
 
                     <Grid container>
-                        <Grid xs={8}>
+                        <Grid item xs={8}>
                             <StyledTimeline position="left">
                                 <TimelineItem position="left">
                                     <TimelineSeparator>
@@ -53,7 +53,7 @@ const IOSModal = () => {
                                 </TimelineItem>
                             </StyledTimeline>
                         </Grid>
-                        <Grid xs={4}>
+                        <Grid item xs={4}>
                             <Tada>
                                 <div className={s.imagineDrawer}>
                                     <img src={img} alt=""/>
