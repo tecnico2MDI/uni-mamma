@@ -1,6 +1,8 @@
 import { createTheme, styled } from "@mui/material/styles";
 import TimelineDot from "@mui/lab/TimelineDot";
 import TimelineContent from "@mui/lab/TimelineContent";
+import {timelineContentClasses} from "@mui/lab";
+import Timeline from "@mui/lab/Timeline";
 
 
 const theme = createTheme({
@@ -143,27 +145,20 @@ export const StyledTimelineContent= styled(TimelineContent)({
     marginTop: "12px"
 
 });
+export const StyledTimeline = styled(Timeline)(() => ({
+    [`& .${timelineContentClasses.root}`]: {
+        flex: 1,
+    },
+}));
 
-// export const StyledBox = styled("div")`
-//     font-size: 20px;
-//     color: var(--table-title-color);
-//     margin-left: 15px;
-//     margin-bottom: 10px;
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     @media (max-width: 480px) {
-//         font-size: 18px;
-//         margin-bottom: 15px;
-//     }
-// `;
-
-// export const StyledTableRow = styled(TableRow)(() => ({
-//     maxWidth: "125px",
-//     minWidth: "125px",
-//     overflowX: "auto",
-//     whiteSpace: "nowrap",
-//     "&:hover": {
-//         background: "var(--hover-table-bg-color)"
-//     }
-// }));
+export const StyledBox = styled("div")`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 170px;
+  background-color: white;
+  padding: 35px;
+  border-radius: 10px;
+`;
