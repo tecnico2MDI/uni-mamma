@@ -26,10 +26,6 @@ import s from './Styles/Modal.module.scss'
 
 
 const IOSModal = () => {
-    const [open, setOpen] = React.useState(true);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
-    const [selected, setSelected] = useState(0);
     useEffect(() => {
         window.matchMedia('(display-mode: standalone)').addEventListener('change', (evt) => {
             let displayMode = 'browser';
@@ -40,6 +36,11 @@ const IOSModal = () => {
             console.log('DISPLAY_MODE_CHANGED', displayMode);
         });
     }, [])
+
+    const [open, setOpen] = React.useState(true);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+    const [selected, setSelected] = useState(0);
 
     return (
         <div style={{marginBottom: "20px"}} >
@@ -64,9 +65,9 @@ const IOSModal = () => {
                 <Modal
                     open={open}
                     onClose={handleClose}
-
+                    className={s.standalone}
                 >
-                    <StyledBox>
+                    <StyledBox className={s.standalone}>
                         <Box className={s.mainTitle}>
                             Installare la App sul tuo Iphone
                         </Box>
