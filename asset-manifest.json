@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/uni-mamma/static/css/main.cd82b93d.css",
-    "main.js": "/uni-mamma/static/js/main.a964e62c.js",
+    "main.js": "/uni-mamma/static/js/main.e8e870f3.js",
     "static/js/787.031cb9ee.chunk.js": "/uni-mamma/static/js/787.031cb9ee.chunk.js",
     "static/media/logoTrasparente.png": "/uni-mamma/static/media/logoTrasparente.98bd97f9b35b08387794.png",
     "service-worker.js": "/uni-mamma/service-worker.js",
     "index.html": "/uni-mamma/index.html",
     "main.cd82b93d.css.map": "/uni-mamma/static/css/main.cd82b93d.css.map",
-    "main.a964e62c.js.map": "/uni-mamma/static/js/main.a964e62c.js.map",
+    "main.e8e870f3.js.map": "/uni-mamma/static/js/main.e8e870f3.js.map",
     "787.031cb9ee.chunk.js.map": "/uni-mamma/static/js/787.031cb9ee.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cd82b93d.css",
-    "static/js/main.a964e62c.js"
+    "static/js/main.e8e870f3.js"
   ]
 }
