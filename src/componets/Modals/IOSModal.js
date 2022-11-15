@@ -9,7 +9,13 @@ import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
 import { Grid, IconButton} from "@mui/material";
 import Tada from 'react-reveal/Tada';
-import {StyledBox, StyledTimeline, StyledTimelineContent, StyledTTimelineDot} from "../Styles/theme";
+import {
+    StyledBox,
+    StyledTimeline,
+    StyledTimelineContent,
+    StyledTTimelineDot,
+    StylesBottomNavigationAction
+} from "../Styles/theme";
 import CloseIcon from "@mui/icons-material/Close";
 import s from './Styles/Modal.module.scss'
 import {BottomNavigation, BottomNavigationAction} from "@material-ui/core";
@@ -39,7 +45,9 @@ const IOSModal = () => {
                     icon={<ChildFriendlyIcon  />}
                 />
                 <BottomNavigationAction  label="Guida" icon={<ReceiptLongIcon />} />
-                <BottomNavigationAction onClick={handleOpen}  label="Aggiungi" icon={<DownloadingIcon  />} />
+                <StylesBottomNavigationAction>
+                    <BottomNavigationAction onClick={handleOpen}  label="Aggiungi" icon={<DownloadingIcon  />} />
+                </StylesBottomNavigationAction>
             </BottomNavigation>
             <Modal
                 open={open}

@@ -140,6 +140,7 @@ export const StyledTimelineContent= styled(TimelineContent)({
     marginTop: "12px"
 
 });
+
 export const StyledTimeline = styled(Timeline)(() => ({
     [`& .${timelineContentClasses.root}`]: {
         flex: 1,
@@ -156,4 +157,13 @@ export const StyledBox = styled("div")`
   background-color: white;
   padding: 35px;
   border-radius: 10px;
+`;
+
+export const StylesBottomNavigationAction = styled("div")`
+  display: block;
+  @media (display-mode: standalone) {
+    body {
+      display: none;
+    }
+  }
 `;

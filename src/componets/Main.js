@@ -6,10 +6,10 @@ import Browser from "./Browser";
 
 import s from "../App.module.scss";
 
+
 const Main = () => {
     return (
         <div>
-
             {isBrowser &&  <Browser/>}
             <div className={s.navBar}>
                 {isAndroid && <Android />}
