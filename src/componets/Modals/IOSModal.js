@@ -26,7 +26,7 @@ const IOSModal = () => {
     const [selected, setSelected] = useState(0);
 
     return (
-        <div >
+        <div style={{marginBottom: "20px"}} >
             <BottomNavigation
                 value={selected}
                 onChange={(value, newValue) => {
