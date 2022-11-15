@@ -32,3 +32,12 @@ img {
     font-size: 19px !important;
 }
 
+.standalone {
+    @media all and (display-mode: standalone) {
+        body {
+            display: none;
+        }
+    }
+}
+
+

@@ -14,7 +14,6 @@ import {
     StyledTimeline,
     StyledTimelineContent,
     StyledTTimelineDot,
-    StylesBottomNavigationAction
 } from "../Styles/theme";
 import CloseIcon from "@mui/icons-material/Close";
 import s from './Styles/Modal.module.scss'
@@ -23,6 +22,15 @@ import Face4Icon from "@mui/icons-material/Face4";
 import ChildFriendlyIcon from "@mui/icons-material/ChildFriendly";
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
 import DownloadingIcon from "@mui/icons-material/Downloading";
+
+window.matchMedia('(display-mode: standalone)').addEventListener('change', (evt) => {
+    let displayMode = 'browser';
+    if (evt.matches) {
+        displayMode = 'standalone';
+    }
+    // Log display mode change to analytics
+    console.log('DISPLAY_MODE_CHANGED', displayMode);
+});
 
 
 const IOSModal = () => {
@@ -45,9 +53,9 @@ const IOSModal = () => {
                     icon={<ChildFriendlyIcon  />}
                 />
                 <BottomNavigationAction  label="Guida" icon={<ReceiptLongIcon />} />
-                <StylesBottomNavigationAction>
+                <div className={s.standalone}>
                     <BottomNavigationAction onClick={handleOpen}  label="Aggiungi" icon={<DownloadingIcon  />} />
-                </StylesBottomNavigationAction>
+                </div>
             </BottomNavigation>
             <Modal
                 open={open}

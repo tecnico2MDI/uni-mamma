@@ -159,11 +159,3 @@ export const StyledBox = styled("div")`
   border-radius: 10px;
 `;
 
-export const StylesBottomNavigationAction = styled("div")`
-  display: block;
-  @media (display-mode: standalone) {
-    body {
-      display: none;
-    }
-  }
-`;
