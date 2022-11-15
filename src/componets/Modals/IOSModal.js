@@ -7,10 +7,10 @@ import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
 import TimelineItem from '@mui/lab/TimelineItem';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
-import {Grid} from "@mui/material";
+import { Grid, IconButton} from "@mui/material";
 import Tada from 'react-reveal/Tada';
 import {StyledBox, StyledTimeline, StyledTimelineContent, StyledTTimelineDot} from "../Styles/theme";
-
+import CloseIcon from "@mui/icons-material/Close";
 import s from './Styles/Modal.module.scss'
 import {BottomNavigation, BottomNavigationAction} from "@material-ui/core";
 import Face4Icon from "@mui/icons-material/Face4";
@@ -24,6 +24,7 @@ const IOSModal = () => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const [selected, setSelected] = useState(0);
+
     return (
         <div >
             <BottomNavigation
@@ -51,6 +52,14 @@ const IOSModal = () => {
 
                     <Grid container>
                         <Grid item xs={8}>
+                           <div>
+                               <IconButton
+                                   style={{ position: "absolute", top: "0", right: "0" }}
+                                   onClick={() => setOpen(false)}
+                               >
+                                   <CloseIcon />
+                               </IconButton>
+                           </div>
                             <StyledTimeline position="left">
                                 <TimelineItem position="left">
                                     <TimelineSeparator>
