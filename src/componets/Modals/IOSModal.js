@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import img from '../../img/logoTrasparente.png'
@@ -16,24 +16,26 @@ import {
     StyledTTimelineDot,
 } from "../Styles/theme";
 import CloseIcon from "@mui/icons-material/Close";
-import s from './Styles/Modal.module.scss'
 import {BottomNavigation, BottomNavigationAction} from "@material-ui/core";
 import Face4Icon from "@mui/icons-material/Face4";
 import ChildFriendlyIcon from "@mui/icons-material/ChildFriendly";
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
 import DownloadingIcon from "@mui/icons-material/Downloading";
 
-window.matchMedia('(display-mode: standalone)').addEventListener('change', (evt) => {
-    let displayMode = 'browser';
-    if (evt.matches) {
-        displayMode = 'standalone';
-    }
-    // Log display mode change to analytics
-    console.log('DISPLAY_MODE_CHANGED', displayMode);
-});
+import s from './Styles/Modal.module.scss'
 
 
 const IOSModal = () => {
+    useEffect(() => {
+        window.matchMedia('(display-mode: standalone)').addEventListener('change', (evt) => {
+            let displayMode = 'browser';
+            if (evt.matches) {
+                displayMode = 'standalone';
+            }
+            // Log display mode change to analytics
+            console.log('DISPLAY_MODE_CHANGED', displayMode);
+        });
+    }, [])
     const [open, setOpen] = React.useState(true);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);

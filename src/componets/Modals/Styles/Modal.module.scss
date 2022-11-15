@@ -34,9 +34,7 @@ img {
 
 .standalone {
     @media all and (display-mode: standalone) {
-        body {
             display: none;
-        }
     }
 }
 
