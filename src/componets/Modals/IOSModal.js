@@ -35,7 +35,6 @@ const IOSModal = () => {
             let displayMode = 'browser';
             if (evt.matches) {
                 displayMode = 'standalone';
-                setOpen(false)
             }
             // Log display mode change to analytics
             console.log('DISPLAY_MODE_CHANGED', displayMode);
@@ -64,7 +63,7 @@ const IOSModal = () => {
                 open={open}
                 onClose={handleClose}
             >
-                <StyledBox>
+                <StyledBox className={s.standalone}>
                     <Box className={s.mainTitle}>
                         Installare la App sul tuo Iphone
                     </Box>
