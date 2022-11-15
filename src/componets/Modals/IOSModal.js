@@ -59,6 +59,7 @@ const IOSModal = () => {
                     <BottomNavigationAction onClick={handleOpen}  label="Aggiungi" icon={<DownloadingIcon  />} />
                 </div>
             </BottomNavigation>
+
             <div className={s.standalone}>
                 <Modal
                     open={open}
