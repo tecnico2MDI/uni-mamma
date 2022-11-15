@@ -59,56 +59,59 @@ const IOSModal = () => {
                     <BottomNavigationAction onClick={handleOpen}  label="Aggiungi" icon={<DownloadingIcon  />} />
                 </div>
             </BottomNavigation>
-            <Modal
-                open={open}
-                onClose={handleClose}
-            >
-                <StyledBox className={s.standalone}>
-                    <Box className={s.mainTitle}>
-                        Installare la App sul tuo Iphone
-                    </Box>
+            <div className={s.standalone}>
+                <Modal
+                    open={open}
+                    onClose={handleClose}
 
-                    <Grid container>
-                        <Grid item xs={8}>
-                           <div>
-                               <IconButton
-                                   style={{ position: "absolute", top: "0", right: "0" }}
-                                   onClick={() => setOpen(false)}
-                               >
-                                   <CloseIcon />
-                               </IconButton>
-                           </div>
-                            <StyledTimeline position="left">
-                                <TimelineItem position="left">
-                                    <TimelineSeparator>
-                                        <StyledTTimelineDot sx={{background: '#ED1163'}}>
-                                            <IosShareIcon className={s.icon}/>
-                                        </StyledTTimelineDot>
-                                        <TimelineConnector/>
-                                    </TimelineSeparator>
-                                    <StyledTimelineContent>Tocca</StyledTimelineContent>
-                                </TimelineItem>
-                                <TimelineItem>
-                                    <TimelineSeparator>
-                                        <StyledTTimelineDot>
-                                            <AddBoxOutlinedIcon className={s.icon}/>
-                                        </StyledTTimelineDot>
-                                    </TimelineSeparator>
-                                    <StyledTimelineContent>Aggiungi a Home</StyledTimelineContent>
-                                </TimelineItem>
-                            </StyledTimeline>
-                        </Grid>
-                        <Grid item xs={4}>
-                            <Tada>
-                                <div className={s.imagineDrawer}>
-                                    <img src={img} alt=""/>
-                                    <div className={s.title}>Uni mamma</div>
+                >
+                    <StyledBox>
+                        <Box className={s.mainTitle}>
+                            Installare la App sul tuo Iphone
+                        </Box>
+
+                        <Grid container>
+                            <Grid item xs={8}>
+                                <div>
+                                    <IconButton
+                                        style={{ position: "absolute", top: "0", right: "0" }}
+                                        onClick={() => setOpen(false)}
+                                    >
+                                        <CloseIcon />
+                                    </IconButton>
                                 </div>
-                            </Tada>
+                                <StyledTimeline position="left">
+                                    <TimelineItem position="left">
+                                        <TimelineSeparator>
+                                            <StyledTTimelineDot sx={{background: '#ED1163'}}>
+                                                <IosShareIcon className={s.icon}/>
+                                            </StyledTTimelineDot>
+                                            <TimelineConnector/>
+                                        </TimelineSeparator>
+                                        <StyledTimelineContent>Tocca</StyledTimelineContent>
+                                    </TimelineItem>
+                                    <TimelineItem>
+                                        <TimelineSeparator>
+                                            <StyledTTimelineDot>
+                                                <AddBoxOutlinedIcon className={s.icon}/>
+                                            </StyledTTimelineDot>
+                                        </TimelineSeparator>
+                                        <StyledTimelineContent>Aggiungi a Home</StyledTimelineContent>
+                                    </TimelineItem>
+                                </StyledTimeline>
+                            </Grid>
+                            <Grid item xs={4}>
+                                <Tada>
+                                    <div className={s.imagineDrawer}>
+                                        <img src={img} alt=""/>
+                                        <div className={s.title}>Uni mamma</div>
+                                    </div>
+                                </Tada>
+                            </Grid>
                         </Grid>
-                    </Grid>
-                </StyledBox>
-            </Modal>
+                    </StyledBox>
+                </Modal>
+            </div>
         </div>
     );
 };
