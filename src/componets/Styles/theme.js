@@ -5,7 +5,6 @@ import {timelineContentClasses} from "@mui/lab";
 import Timeline from "@mui/lab/Timeline";
 import {Button, Checkbox, TextField} from "@mui/material";
 
-
 export const theme = createTheme({
     components: {
         MuiFormControl: {

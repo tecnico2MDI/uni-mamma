@@ -36,7 +36,7 @@ const IOSModal = () => {
         });
     }, [])
 
-    const [open, setOpen] = React.useState(true);
+    const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const [selected, setSelected] = useState(0);
@@ -49,14 +49,26 @@ const IOSModal = () => {
                     setSelected(newValue);
                 }}
             >
-                <BottomNavigationAction  label="Mamma" icon={<Face4Icon/>} />
                 <BottomNavigationAction
+                    style={{color: '#26BEB9'}}
+                    label="Mamma"
+                    icon={<Face4Icon/>} />
+                <BottomNavigationAction
+                    style={{color: '#26BEB9'}}
                     label="Bebe"
                     icon={<ChildFriendlyIcon  />}
                 />
-                <BottomNavigationAction  label="Guida" icon={<ReceiptLongIcon />} />
+                <BottomNavigationAction
+                    style={{color: '#26BEB9'}}
+                    label="Guida" icon={<ReceiptLongIcon />}
+                />
                 <div className={s.standalone}>
-                    <BottomNavigationAction onClick={handleOpen}  label="Aggiungi" icon={<DownloadingIcon  />} />
+                    <BottomNavigationAction
+                        style={{color: '#26BEB9'}}
+                        onClick={handleOpen}
+                        label="Aggiungi"
+                        icon={<DownloadingIcon  />}
+                    />
                 </div>
             </BottomNavigation>
 

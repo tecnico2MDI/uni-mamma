@@ -35,13 +35,26 @@ const Android = () => {
                     setSelected(newValue);
                 }}
             >
-                <BottomNavigationAction  label="Mamma" icon={<Face4Icon/>} />
                 <BottomNavigationAction
-                    label="Bebe"
-                    icon={<ChildFriendlyIcon  />}
+                    style={{color: '#26BEB9'}}
+                    label="Mamma"
+                    icon={<Face4Icon/>}
                 />
-                <BottomNavigationAction  label="Guida" icon={<ReceiptLongIcon />} />
-                <BottomNavigationAction onClick={handleInstallPwa} label="Aggiungi" icon={<DownloadingIcon  />} />
+                <BottomNavigationAction
+                    style={{color: '#26BEB9'}}
+                    label="Bebe"
+                    icon={<ChildFriendlyIcon />}
+                />
+                <BottomNavigationAction
+                    style={{color: '#26BEB9'}}
+                    label="Guida"
+                    icon={<ReceiptLongIcon />}
+                />
+                <BottomNavigationAction
+                    style={{color: '#26BEB9'}}
+                    onClick={handleInstallPwa}
+                    label="Aggiungi"
+                    icon={<DownloadingIcon  />} />
             </BottomNavigation>
         </div>
     );
