@@ -14,7 +14,6 @@ const PrivateRoutes = ({  user }) => {
 
     return (
         <div>
-            <div>navbar</div>
             <Outlet />
         </div>
     );

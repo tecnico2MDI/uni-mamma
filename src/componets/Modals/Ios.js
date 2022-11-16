@@ -24,14 +24,14 @@ import DownloadingIcon from "@mui/icons-material/Downloading";
 
 import s from './Styles/Modal.module.scss'
 
-const IOSModal = () => {
+
+const Ios = () => {
     useEffect(() => {
         window.matchMedia('(display-mode: standalone)').addEventListener('change', (evt) => {
             let displayMode = 'browser';
             if (evt.matches) {
                 displayMode = 'standalone';
             }
-            // Log display mode change to analytics
             console.log('DISPLAY_MODE_CHANGED', displayMode);
         });
     }, [])
@@ -42,17 +42,20 @@ const IOSModal = () => {
     const [selected, setSelected] = useState(0);
 
     return (
-        <div style={{marginBottom: "20px"}} >
-            <BottomNavigation
-                value={selected}
-                onChange={(value, newValue) => {
-                    setSelected(newValue);
-                }}
-            >
+        <div>
+            <div className={s.navBar} >
+                <BottomNavigation
+                    value={selected}
+                    onChange={(value, newValue) => {
+                        setSelected(newValue);
+                    }}
+                >
                 <BottomNavigationAction
                     style={{color: '#26BEB9'}}
                     label="Mamma"
-                    icon={<Face4Icon/>} />
+                    icon={<Face4Icon/>}
+                />
+
                 <BottomNavigationAction
                     style={{color: '#26BEB9'}}
                     label="Bebe"
@@ -126,7 +129,9 @@ const IOSModal = () => {
                 </Modal>
             </div>
         </div>
-    );
+</div>
+
+);
 };
 
-export default IOSModal;
+export default Ios;
