@@ -1,43 +1,62 @@
 import React, {useState} from 'react';
-import {Link, useNavigate, useSearchParams} from "react-router-dom";
-import { Grid} from "@mui/material";
-import PermIdentityIcon from '@mui/icons-material/PermIdentity';
-import {StyledButton, StyledCheckbox, StyledTextField} from "../Styles/theme";
-import s from './styles/CoomonFormStyles.module.scss'
+import {Grid} from "@mui/material";
 
-const LoginForm = ({onLogin}) => {
-    const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-    const navigate = useNavigate();
-    const [searchParams] = useSearchParams();
+import s from './styles/CoomonFormStyles.module.scss'
+import PermIdentityIcon from "@mui/icons-material/PermIdentity";
+import {StyledButton, StyledTextField} from "../Styles/theme";
+import {Link} from "react-router-dom";
+
+const RegisterForm = () => {
+
     const [contactInfo, setContactInfo] = useState({
         email: "",
         password: "",
-        checked: true
+        repeatPassword: "",
     });
+
+    const { email, password, repeatPassword } = contactInfo;
+
+    const onSubmit = async (e) => {
+        e.preventDefault();
+        if (password !== repeatPassword) {
+            console.log("Passwords do not match");
+        } else {
+            console.log("Passwords are matched");
+            const newUser = {
+                email,
+                password,
+                repeatPassword
+            };
+            try {
+                const config = {
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                };
+                const body = JSON.stringify(newUser);
+                // const res = await axios.post("/api/users", body, config);
+                // console.log(res.data);
+            } catch (err) {
+                console.error(err.response.data);
+            }
+        }
+    };
+
 
     const changeHandler = e => {
         setContactInfo({...contactInfo,[e.target.name]:e.target.value});
     }
-
-    const handleClick = (e) => setContactInfo(e.target.checked)
-
-
-    function handleSubmit(e) {
-        e.preventDefault();
-    }
-
     return (
-        <div className={s.mainForm} >
+        <div className={s.mainForm}>
             <Grid container>
                 <Grid item xs={12}>
                     <div className={s.header}>
                         <div className={s.iconBlock}>
                             <PermIdentityIcon className={s.icon} />
                         </div>
-                        <div className={s.title}>Hai un account?</div>
+                        <div className={s.title}>Registati ora</div>
                     </div>
-
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={onSubmit}>
                         <StyledTextField sx={{minWidth: "90%"}}
                                          value={contactInfo.email}
                                          onChange={changeHandler}
@@ -63,35 +82,33 @@ const LoginForm = ({onLogin}) => {
                                          variant="outlined"
                                          required
                         />
-                        <div className={s.checkBoxBlock}>
-                            <div className={s.saveTitle}>
-                                {/*Salva i dati*/}
-                                {/*<StyledCheckbox {...label} onChange={handleClick}*/}
-                                {/*                checked={contactInfo.checked}*/}
-                                {/*                type="checkbox"*/}
-                                {/*                name='checkbox'*/}
-                                {/*/>*/}
-                            </div>
-                            <div className={s.saveTitle}>
-                                <Link to="/recover-password">Hai dimenticato la tua password?</Link>
-                            </div>
-                        </div>
-                        <StyledButton
+                        <StyledTextField sx={{minWidth: "90%"}}
+                                         value={contactInfo.repeatPassword}
+                                         onChange={changeHandler}
+                                         id="outlined"
+                                         label="Repeat Password"
+                                         type="password"
+                                         name="repeatPassword"
+                                         autoComplete="current-password"
+                                         margin="normal"
+                                         variant="outlined"
+                                         required
+                        />
+
+
+                        <StyledButton sx={{marginTop: '20px'}}
                             variant="outlined"
                             type="submit"
-                            onClick={() => {
-                                onLogin();
-                                navigate(searchParams.get("redirectTo"));
-                            }}
                         >
-                            <b>Accedi</b>
+                            <b>Registrati</b>
                         </StyledButton>
+
                         <div className={s.accountBlock}>
                             <div className={s.title}>
-                                Non hai il tuo account?
+                                Hai gia il account?
                             </div>
                             <div className={s.saveTitle}>
-                                <Link to ="/register">Crea un account</Link>
+                                <Link to ="/login">LogIn</Link>
                             </div>
                         </div>
                     </form>
@@ -101,4 +118,4 @@ const LoginForm = ({onLogin}) => {
     );
 };
 
-export default LoginForm;
+export default RegisterForm;
