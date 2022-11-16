@@ -12,6 +12,8 @@ const RegisterForm = () => {
     const navigate = useNavigate();
     const [contactInfo, setContactInfo] = useState({
         email: "",
+        name: "",
+        surname: "",
         password: "",
         repeatPassword: "",
     });
@@ -54,6 +56,32 @@ const RegisterForm = () => {
                                              type="email"
                                              name="email"
                                              autoComplete="email"
+                                             margin="normal"
+                                             variant="outlined"
+                                             required
+                                             autoFocus
+                            />
+                            <StyledTextField sx={{minWidth: "90%"}}
+                                             value={contactInfo.name}
+                                             onChange={changeHandler}
+                                             id="Name"
+                                             label="Nome"
+                                             type="name"
+                                             name="name"
+                                             autoComplete="name"
+                                             margin="normal"
+                                             variant="outlined"
+                                             required
+                                             autoFocus
+                            />
+                            <StyledTextField sx={{minWidth: "90%"}}
+                                             value={contactInfo.surname}
+                                             onChange={changeHandler}
+                                             id="surname"
+                                             label="Cognome"
+                                             type="surname"
+                                             name="surname"
+                                             autoComplete="surname"
                                              margin="normal"
                                              variant="outlined"
                                              required
