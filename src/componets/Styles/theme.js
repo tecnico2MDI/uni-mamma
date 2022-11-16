@@ -3,97 +3,11 @@ import TimelineDot from "@mui/lab/TimelineDot";
 import TimelineContent from "@mui/lab/TimelineContent";
 import {timelineContentClasses} from "@mui/lab";
 import Timeline from "@mui/lab/Timeline";
+import {Button, Checkbox, TextField} from "@mui/material";
 
 
-const theme = createTheme({
-    palette: {
-        error: {
-            light: "#26BFB9",
-            main: "#f44336",
-            dark: "#ba000d",
-            contrastText: "#000"
-        },
-        warning: {
-            light: "#ffcf33",
-            main: "#ffc400",
-            dark: "#b28900",
-            contrastText: "#000"
-        },
-        success: {
-            light: "#a2cf6e",
-            main: "#8bc34a",
-            dark: "#618833",
-            contrastText: "#000"
-        }
-    },
+export const theme = createTheme({
     components: {
-        MuiButtonBase: {
-            defaultProps: {},
-            styleOverrides: {
-                root: {
-                }
-            }
-        },
-        MuiButton: {
-            styleOverrides: {
-                root: {},
-                text: {
-                    fontSize: "16px"
-                }
-            }
-        },
-
-        MuiMenuItem: {
-            styleOverrides: {
-                root: {
-                    "&:hover": {
-                        background: "var(--hover-table-bg-color)"
-                    },
-                    "&.Mui-selected:hover": {
-                        backgroundColor: "var(--mui-selector-on-selected) !important"
-                    },
-                    "&.Mui-selected": {
-                        background: "var(--mui-selector-on-selected) !important",
-                        backgroundColor: "var(--mui-selector-on-selected) !important"
-                    },
-                    "&.active": {
-                        backgroundColor: "var(--mui-selector-on-selected) !important"
-                    },
-                    "&.focus": {
-                        backgroundColor: "var(--mui-selector-on-selected) !important"
-                    }
-                }
-            }
-        },
-        MuiTableContainer: {
-            styleOverrides: {
-                root: {
-                    boxShadow: "none",
-                    minHeight: "300px",
-                    maxHeight: "300px"
-                }
-            }
-        },
-        MuiOutlinedInput: {
-            styleOverrides: {
-                root: {}
-            }
-        },
-        MuiTooltip: {
-            styleOverrides: {
-                popper: {}
-            }
-        },
-        MuiAutocomplete: {
-            styleOverrides: {
-                listbox: {
-                    fontSize: "12px !important",
-                    lineHeight: "inherit"
-                },
-                root: {}
-            }
-        },
-
         MuiFormControl: {
             styleOverrides: {
                 root: {
@@ -117,15 +31,64 @@ const theme = createTheme({
                 }
             }
         },
-        MuiBottomNavigationAction: {
-            styleOverrides: {
-
-            }
-        }
     }
+
 });
 
 export default theme;
+//TextField
+export const StyledTextField= styled(TextField)({
+    background: "transparent !important",
+    '& label.Mui-focused': {
+        color: '#26BFB9',
+    },
+    '& .MuiInput-underline:after': {
+        borderBottomColor: '#26BFB9',
+    },
+    '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+            borderColor: '#26BFB9',
+        },
+        '&:hover fieldset': {
+            borderColor: '#26BFB9',
+        },
+        '&.Mui-focused fieldset': {
+            borderColor: '#26BFB9',
+        },
+    },
+
+});
+//checkbox
+export const StyledCheckbox= styled(Checkbox)({
+    color: '#26BFB9',
+    '&, &.Mui-checked': {
+        color: "#26BFB9"
+    },
+});
+//button
+export const StyledButton= styled(Button)({
+    width: "360px",
+    color: '#26BFB9',
+    borderColor: '#26BFB9',
+    '&, &.Mui-checked': {
+        color: "#26BFB9"
+    },
+    '&:hover': {
+        backgroundColor: 'white',
+        borderColor: '26BFB9',
+        boxShadow: 'none',
+    },
+    '&:active': {
+        boxShadow: 'none',
+        backgroundColor: 'white',
+        borderColor: '#26BFB9',
+    },
+    '&:focus': {
+        boxShadow: 'none',
+        borderColor: '#26BFB9',
+    },
+});
+
 
 //modals
 export const StyledTTimelineDot= styled(TimelineDot)({

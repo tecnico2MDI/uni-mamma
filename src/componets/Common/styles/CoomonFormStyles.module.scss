@@ -1,0 +1,53 @@
+.mainForm {
+  max-width: 400px;
+  margin: 0 auto;
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .iconBlock {
+      margin-bottom: 20px;
+      color: white;
+      background: #26BFB9;
+      height: 60px;
+      width: 60px;
+      border-radius: 30px;
+      .icon {
+        font-size: 55px;
+      }
+    }
+    .title {
+      margin-bottom: 30px;
+      font-size: 18px;
+      color: #26BFB9;
+      font-weight: bold;
+    }
+  }
+  .saveTitle {
+    font-size: 13px;
+    color: #26BFB9;
+    font-weight: bold;
+  }
+  .checkBoxBlock {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    a {
+      outline: none;
+      color: #EE236F;
+    }
+  }
+  .accountBlock {
+    margin-top: 40px;
+    .title {
+      font-size: 15px;
+      color: #26BFB9;
+      margin-bottom: 10px;
+    }
+    a {
+      outline: none;
+      color: #EE236F;
+    }
+  }
+}
