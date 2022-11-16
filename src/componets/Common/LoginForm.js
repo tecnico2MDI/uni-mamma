@@ -2,11 +2,10 @@ import React, {useState} from 'react';
 import {Link, useNavigate, useSearchParams} from "react-router-dom";
 import { Grid} from "@mui/material";
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
-import {StyledButton, StyledCheckbox, StyledTextField} from "../Styles/theme";
+import {StyledButton, StyledTextField} from "../Styles/theme";
 import s from './styles/CoomonFormStyles.module.scss'
 
 const LoginForm = ({onLogin}) => {
-    const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
     const [contactInfo, setContactInfo] = useState({
@@ -18,9 +17,6 @@ const LoginForm = ({onLogin}) => {
     const changeHandler = e => {
         setContactInfo({...contactInfo,[e.target.name]:e.target.value});
     }
-
-    const handleClick = (e) => setContactInfo(e.target.checked)
-
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -84,7 +80,7 @@ const LoginForm = ({onLogin}) => {
                                 navigate(searchParams.get("redirectTo"));
                             }}
                         >
-                            <b>Accedi</b>
+                            <b>Login</b>
                         </StyledButton>
                         <div className={s.accountBlock}>
                             <div className={s.title}>
