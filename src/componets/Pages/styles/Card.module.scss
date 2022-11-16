@@ -1,0 +1,44 @@
+.cardBlock {
+  height: 300px;
+  box-shadow: 0 0 9px rgb(0 0 0 / 20%);
+  margin-bottom: 20px;
+  .img {
+    position: relative;
+    img {
+      width: 100%;
+      height: 90%;
+      background-size: contain;
+    }
+  }
+  .type {
+    position: absolute;
+    background: #EE236F;
+    color: white;
+    text-transform: uppercase;
+    padding: 5px;
+    font-weight: bold;
+    width: 90%;
+    text-align: center;
+    border-bottom-right-radius: 60px;
+    font-size: 13px;
+    bottom: 0;
+  }
+  .title {
+    margin-top: 30px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .link {
+    text-align: center;
+    margin-top: 25px;
+    a {
+      outline: none;
+      text-decoration: none;
+      color: #EE236F;
+      font-weight: bold;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+  }
+}

@@ -35,11 +35,11 @@ img {
 .standalone {
     @media all and (display-mode: standalone) {
         display: none;
+        padding-bottom: 20px;
     }
 }
 .navBar {
     width: 100%;
     position: fixed;
     bottom: 0;
-    margin-bottom: 20px;
 }

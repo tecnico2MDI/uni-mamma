@@ -42,14 +42,13 @@ const Ios = () => {
     const [selected, setSelected] = useState(0);
 
     return (
-        <div>
-            <div className={s.navBar} >
-                <BottomNavigation
-                    value={selected}
-                    onChange={(value, newValue) => {
-                        setSelected(newValue);
-                    }}
-                >
+        <div className={s.navBar} >
+            <BottomNavigation
+                value={selected}
+                onChange={(value, newValue) => {
+                    setSelected(newValue);
+                }}
+            >
                 <BottomNavigationAction
                     style={{color: '#26BEB9'}}
                     label="Mamma"
@@ -129,9 +128,8 @@ const Ios = () => {
                 </Modal>
             </div>
         </div>
-</div>
 
-);
+    );
 };
 
 export default Ios;

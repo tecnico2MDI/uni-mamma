@@ -21,18 +21,18 @@ function App() {
                         <Route element={<PrivateRoutes user={user} />}>
                             <Route path="/" element={<Main />}/>
                         </Route>
-                        <Route
-                            path="/login"
-                            element={
-                                <LoginForm
-                                    onLogin={() => {
-                                        setUser(true);
-                                    }}
-                                />
-                            }
-                        />
-                        <Route path="/register" element={<RegisterForm />} />
-                        <Route path="/recover-password" element={<RecoverPass />} />
+                            <Route
+                                path="/login"
+                                element={
+                                    <LoginForm
+                                        onLogin={() => {
+                                            setUser(true);
+                                        }}
+                                    />
+                                }
+                            />
+                            <Route path="/register" element={<RegisterForm />} />
+                            <Route path="/recover-password" element={<RecoverPass />} />
                         <Route path="/mamma" element={<MainContent />} />
                     </Routes>
                 </HashRouter>
