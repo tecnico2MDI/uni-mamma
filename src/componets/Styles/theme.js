@@ -67,7 +67,7 @@ export const StyledCheckbox= styled(Checkbox)({
 });
 //button
 export const StyledButton= styled(Button)({
-    width: "360px",
+    minWidth: "90%",
     color: '#26BFB9',
     borderColor: '#26BFB9',
     '&, &.Mui-checked': {

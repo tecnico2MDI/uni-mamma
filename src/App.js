@@ -2,13 +2,13 @@ import React, {useState} from 'react';
 import {HashRouter, Route, Routes} from "react-router-dom";
 import Main from "./componets/Main";
 import { ThemeProvider } from '@mui/styles';
-import s from  './App.module.scss';
 import LoginForm from "./componets/Common/LoginForm";
 import PrivateRoutes from "./componets/Common/PrivateRoutes";
 import theme from "./componets/Styles/theme";
 import RegisterForm from "./componets/Common/RegisterForm";
 import RecoverPass from "./componets/Common/RecoverPass";
 
+import s from  './App.module.scss';
 
 export const PATHS = {
     MAIN: "/",
