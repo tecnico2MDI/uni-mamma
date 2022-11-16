@@ -1,25 +1,43 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {HashRouter, Route, Routes} from "react-router-dom";
 import Main from "./componets/Main";
-
+import { ThemeProvider } from '@mui/styles';
 import s from  './App.module.scss';
+import LoginForm from "./componets/Common/LoginForm";
+import PrivateRoutes from "./componets/Common/PrivateRoutes";
+import theme from "./componets/Styles/theme";
 
 
 export const PATHS = {
-  MAIN: "/",
+    MAIN: "/",
 };
 
 function App() {
-  return (
-    <div className={s.App}>
-        This is APP
-      <HashRouter>
-        <Routes>
-          <Route path={PATHS.MAIN} element={<Main />} />
-        </Routes>
-      </HashRouter>
-    </div>
-  );
+    const [user, setUser] = useState(false);
+    return (
+        <ThemeProvider theme={theme}>
+            <div className={s.App}>
+                <HashRouter>
+                    <Routes >
+                        <Route element={<PrivateRoutes user={user} />}>
+                            <Route path={PATHS.MAIN} element={<Main />} />
+                        </Route>
+                        <Route
+                            path="/login"
+                            element={
+                                <LoginForm
+                                    onLogin={() => {
+                                        setUser(true);
+                                    }}
+                                />
+                            }
+                        />
+                        {/*<Route path="/register" element={<Register />} />*/}
+                    </Routes>
+                </HashRouter>
+            </div>
+        </ThemeProvider>
+    );
 }
 
 export default App;

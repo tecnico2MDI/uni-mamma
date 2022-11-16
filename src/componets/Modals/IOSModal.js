@@ -24,7 +24,6 @@ import DownloadingIcon from "@mui/icons-material/Downloading";
 
 import s from './Styles/Modal.module.scss'
 
-
 const IOSModal = () => {
     useEffect(() => {
         window.matchMedia('(display-mode: standalone)').addEventListener('change', (evt) => {
