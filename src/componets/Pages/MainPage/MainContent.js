@@ -5,6 +5,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import Avatar from 'react-avatar';
 import Fade from 'react-reveal/Fade';
 import Card from "./Card";
+import {StyledLinearProgress} from "../../Styles/theme";
 
 const data = [
     {id: 1, title: "Conservazione del latte materno", type: "Allatamento", link: "https://unimamma.it/allattamento/conservazione-latte-materno/",img:"https://www.uppa.it/wp-content/uploads/2020/01/guida-allattamento-al-seno.jpg" },
@@ -13,6 +14,10 @@ const data = [
     {id: 4, title: "Conservazione del latte materno", type: "Parto", img: "https://www.uppa.it/wp-content/uploads/2020/01/guida-allattamento-al-seno.jpg", link: "https://unimamma.it/parto/posizioni-del-parto-quali-le-migliori/"},
     {id: 5, title: "Cura delle ragadi: premessa", type: "Allatamento", img: "https://www.uppa.it/wp-content/uploads/2020/01/guida-allattamento-al-seno.jpg", link: "https://unimamma.it/allattamento/cura-delle-ragadi/"},
 ]
+// termin settimani
+
+const term = 7;
+const result = Math.round((term / 40) * 100)
 
 const MainContent = () => {
     return (
@@ -26,11 +31,11 @@ const MainContent = () => {
                             <Avatar  color={"#EE236F"} name="Marina Gherman" round={true}  size="60" />
                         </div>
                         <ImageListItem>
-                            <img src="https://img.freepik.com/free-photo/small-baby-lies-basket-with-plaid_8353-7789.jpg?w=996&t=st=1668611447~exp=1668612047~hmac=eadd8ee7373cf1e6ca3477d66791693382beab67c232f66999cac7c6f33c19a1"
+                            <img src="https://flomaster.club/uploads/posts/2022-07/1658358616_2-flomaster-club-p-zarodish-risunok-krasivo-2.jpg"
                                 loading="lazy"
                                 alt='img'/>
                             <ImageListItemBar
-                                title="Sei a settimana: 7"
+                                title={`Sei a settimana: ${term}`}
                                 // subtitle="Settimana: 7"
                                 actionIcon={
                                     <IconButton
@@ -42,8 +47,16 @@ const MainContent = () => {
                             />
                         </ImageListItem>
                     </div>
+                        <div className={s.progressBarBlock}>
+                            <div className={s.title}>{`settimana ${term} di gravidanza`} </div>
+                            <div className={s.subTitle}>Primo trimestre</div>
+                            <div className={s.progressBar}>
+                                <div className={s.percentResult}>{result}%</div>
+                                <StyledLinearProgress variant="determinate" value={result} />
+                            </div>
+                        </div>
                         <div className={s.secondBlock}>
-                        <Card data={data}/>
+                            <Card data={data}/>
                         </div>
                     </Fade>
                 </Grid>

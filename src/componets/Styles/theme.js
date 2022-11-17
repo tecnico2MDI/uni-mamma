@@ -3,7 +3,7 @@ import TimelineDot from "@mui/lab/TimelineDot";
 import TimelineContent from "@mui/lab/TimelineContent";
 import {timelineContentClasses} from "@mui/lab";
 import Timeline from "@mui/lab/Timeline";
-import {Button, Checkbox, TextField} from "@mui/material";
+import {Button, Checkbox, LinearProgress, TextField} from "@mui/material";
 
 export const theme = createTheme({
     components: {
@@ -100,6 +100,14 @@ export const StyledTTimelineDot= styled(TimelineDot)({
 export const StyledTimelineContent= styled(TimelineContent)({
     fontSize:"14px",
     marginTop: "12px"
+
+});
+
+//linear progress
+export const StyledLinearProgress= styled(LinearProgress)({
+    backgroundColor: 'rgba(73,200,196,0.36)',
+    '& .MuiLinearProgress-bar': {
+        backgroundColor: '#49C8C4'}
 
 });
 
