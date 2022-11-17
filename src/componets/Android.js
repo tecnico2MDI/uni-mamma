@@ -28,7 +28,7 @@ const Android = () => {
     const [selected, setSelected] = useState(0);
 
     return (
-        <div style={{marginBottom: "20px"}}>
+        <div style={{width: "100%", position: "fixed", bottom: 0}}>
             <BottomNavigation
                 value={selected}
                 onChange={(value, newValue) => {

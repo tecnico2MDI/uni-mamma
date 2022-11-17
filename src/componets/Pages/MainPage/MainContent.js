@@ -24,6 +24,16 @@ const data = [
 ]
 // termin settimani
 
+
+const MainContent = () => {
+    const [open, setOpen] = useState(false);
+    const [value, setValue] = useState(dayjs(new Date()));
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+    const handleChange = (newValue) => {
+        setValue(newValue);
+    };
+    const preventDay = dayjs(value).add(9,"month").toDate().toDateString();
     const term = 14;
     const result = Math.round((term / 40) * 100)
 
@@ -35,17 +45,6 @@ const data = [
     } else {
         trimester ="Terzo trimestre"
     }
-
-const MainContent = () => {
-    const [open, setOpen] = useState(false);
-    const [value, setValue] = useState(dayjs(new Date()));
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
-    const handleChange = (newValue) => {
-        setValue(newValue);
-    };
-    const preventDay = dayjs(value).add(9,"month").toDate().toDateString();
-
     return (
         <Box className={s.mainContent}>
             <Grid container>
