@@ -5,7 +5,8 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import Avatar from 'react-avatar';
 import Fade from 'react-reveal/Fade';
 import Card from "./Card";
-import {StyledLinearProgress} from "../../Styles/theme";
+import {StyledBox, StyledLinearProgress} from "../../Styles/theme";
+import Modal from "@mui/material/Modal";
 
 const data = [
     {id: 1, title: "Conservazione del latte materno", type: "Allatamento", link: "https://unimamma.it/allattamento/conservazione-latte-materno/",img:"https://www.uppa.it/wp-content/uploads/2020/01/guida-allattamento-al-seno.jpg" },
@@ -16,40 +17,62 @@ const data = [
 ]
 // termin settimani
 
-const term = 7;
+const term = 14;
 const result = Math.round((term / 40) * 100)
 
+let trimester;
+if(term <= 12 ) {
+    trimester = "Primo trimestre"
+} else if (term <=27) {
+    trimester ="Secondo trimestre"
+} else {
+    trimester ="Terzo trimestre"
+}
+
 const MainContent = () => {
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
     return (
         <Box className={s.mainContent}>
             <Grid container>
                 <Grid item xs={12}>
                     <Fade>
                         <div className={s.firstBlock}>
-                        <div className={s.title}>Buongiorno Marina</div>
-                        <div className={s.avatar}>
-                            <Avatar  color={"#EE236F"} name="Marina Gherman" round={true}  size="60" />
+                            <div className={s.title}>Buongiorno Marina</div>
+                            <div className={s.avatar}>
+                                <Avatar  color={"#EE236F"} name="Marina Gherman" round={true}  size="60" />
+                            </div>
+                            <ImageListItem>
+                                <img src="https://flomaster.club/uploads/posts/2022-07/1658358616_2-flomaster-club-p-zarodish-risunok-krasivo-2.jpg"
+                                     loading="lazy"
+                                     alt='img'/>
+                                <ImageListItemBar
+                                    title={`Sei a settimana: ${term}`}
+                                    // subtitle="Settimana: 7"
+                                    actionIcon={
+                                        <IconButton
+                                            aria-label={`info about`}
+                                            onClick={handleOpen}
+                                        >
+                                            <SettingsIcon style={{ color: 'white',marginRight: "10px" }} />
+                                        </IconButton>
+                                    }
+                                />
+                                <Modal
+                                    open={open}
+                                    onClose={handleClose}
+                                    aria-labelledby="modal-modal-title"
+                                    aria-describedby="modal-modal-description">
+                                    <StyledBox>
+                                        ddd
+                                    </StyledBox>
+                                </Modal>
+                            </ImageListItem>
                         </div>
-                        <ImageListItem>
-                            <img src="https://flomaster.club/uploads/posts/2022-07/1658358616_2-flomaster-club-p-zarodish-risunok-krasivo-2.jpg"
-                                loading="lazy"
-                                alt='img'/>
-                            <ImageListItemBar
-                                title={`Sei a settimana: ${term}`}
-                                // subtitle="Settimana: 7"
-                                actionIcon={
-                                    <IconButton
-                                        aria-label={`info about`}
-                                    >
-                                        <SettingsIcon style={{ color: 'white',marginRight: "10px" }} />
-                                    </IconButton>
-                                }
-                            />
-                        </ImageListItem>
-                    </div>
                         <div className={s.progressBarBlock}>
                             <div className={s.title}>{`settimana ${term} di gravidanza`} </div>
-                            <div className={s.subTitle}>Primo trimestre</div>
+                            <div className={s.subTitle}>{trimester}</div>
                             <div className={s.progressBar}>
                                 <div className={s.percentResult}>{result}%</div>
                                 <StyledLinearProgress variant="determinate" value={result} />
