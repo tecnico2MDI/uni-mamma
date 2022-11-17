@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Grid, Box, ImageListItem, ImageListItemBar, IconButton, TextField} from "@mui/material";
+import {Grid, Box, ImageListItem, ImageListItemBar, IconButton, InputAdornment} from "@mui/material";
 import SettingsIcon from '@mui/icons-material/Settings';
 import Modal from "@mui/material/Modal";
 import Avatar from 'react-avatar';
@@ -10,9 +10,10 @@ import { FaBaby } from 'react-icons/fa';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
+import dayjs from "dayjs";
+import TodayIcon from '@mui/icons-material/Today';
 
 import s from '../styles/MainContent.module.scss'
-import dayjs from "dayjs";
 
 const data = [
     {id: 1, title: "Conservazione del latte materno", type: "Allatamento", link: "https://unimamma.it/allattamento/conservazione-latte-materno/",img:"https://www.uppa.it/wp-content/uploads/2020/01/guida-allattamento-al-seno.jpg" },
@@ -23,18 +24,17 @@ const data = [
 ]
 // termin settimani
 
-const term = 14;
-const result = Math.round((term / 40) * 100)
+    const term = 14;
+    const result = Math.round((term / 40) * 100)
 
-let trimester;
-if(term <= 12 ) {
-    trimester = "Primo trimestre"
-} else if (term <=27) {
-    trimester ="Secondo trimestre"
-} else {
-    trimester ="Terzo trimestre"
-}
-
+    let trimester;
+    if(term <= 12 ) {
+        trimester = "Primo trimestre"
+    } else if (term <=27) {
+        trimester ="Secondo trimestre"
+    } else {
+        trimester ="Terzo trimestre"
+    }
 
 const MainContent = () => {
     const [open, setOpen] = useState(false);
@@ -44,8 +44,8 @@ const MainContent = () => {
     const handleChange = (newValue) => {
         setValue(newValue);
     };
-
     const preventDay = dayjs(value).add(9,"month").toDate().toDateString();
+
     return (
         <Box className={s.mainContent}>
             <Grid container>
@@ -74,9 +74,7 @@ const MainContent = () => {
                                 />
                                 <Modal
                                     open={open}
-                                    onClose={handleClose}
-                                    aria-labelledby="modal-modal-title"
-                                    aria-describedby="modal-modal-description">
+                                    onClose={handleClose}>
                                     <StyledBoxDataModal>
                                         <div className={s.modalBlock}>
                                             <div className={s.modalIconBlock}>
@@ -90,7 +88,13 @@ const MainContent = () => {
                                                         inputFormat="DD/MM/YYYY"
                                                         value={value}
                                                         onChange={handleChange}
-                                                        renderInput={(params) => <StyledTextField {...params} />}
+                                                        renderInput={(params) => <StyledTextField {...params} InputProps={{
+                                                            endAdornment: (
+                                                                <InputAdornment position="end">
+                                                                    <TodayIcon sx={{color: "#EE236F"}} />
+                                                                </InputAdornment>
+                                                            )
+                                                        }} />}
                                                     />
                                                 </LocalizationProvider>
                                             </div>
