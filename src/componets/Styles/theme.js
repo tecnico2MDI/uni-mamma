@@ -129,3 +129,15 @@ export const StyledBox = styled("div")`
   border-radius: 10px;
 `;
 
+export const StyledBoxDataModal = styled("div")`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 300px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+`;
+

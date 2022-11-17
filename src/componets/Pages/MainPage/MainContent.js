@@ -1,12 +1,17 @@
-import React from 'react';
-import s from '../styles/MainContent.module.scss'
-import {Grid, Box, ImageListItem, ImageListItemBar, IconButton} from "@mui/material";
+import React, {useState} from 'react';
+import {Grid, Box, ImageListItem, ImageListItemBar, IconButton, TextField} from "@mui/material";
 import SettingsIcon from '@mui/icons-material/Settings';
+import Modal from "@mui/material/Modal";
 import Avatar from 'react-avatar';
 import Fade from 'react-reveal/Fade';
 import Card from "./Card";
-import {StyledBox, StyledLinearProgress} from "../../Styles/theme";
-import Modal from "@mui/material/Modal";
+import { StyledBoxDataModal, StyledLinearProgress} from "../../Styles/theme";
+import { FaBaby } from 'react-icons/fa';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
+
+import s from '../styles/MainContent.module.scss'
 
 const data = [
     {id: 1, title: "Conservazione del latte materno", type: "Allatamento", link: "https://unimamma.it/allattamento/conservazione-latte-materno/",img:"https://www.uppa.it/wp-content/uploads/2020/01/guida-allattamento-al-seno.jpg" },
@@ -30,18 +35,22 @@ if(term <= 12 ) {
 }
 
 const MainContent = () => {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
+    const [value, setValue] = useState(null);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const handleChange = (newValue) => {
+        setValue(newValue);
+    };
     return (
         <Box className={s.mainContent}>
             <Grid container>
-                <Grid item xs={12}>
+                <Grid item xs={12} sm={4} md={4} lg={4}>
                     <Fade>
                         <div className={s.firstBlock}>
                             <div className={s.title}>Buongiorno Marina</div>
                             <div className={s.avatar}>
-                                <Avatar  color={"#EE236F"} name="Marina Gherman" round={true}  size="60" />
+                                <Avatar  color="#EE236F" name="Marina Gherman" round={true}  size="60" />
                             </div>
                             <ImageListItem>
                                 <img src="https://flomaster.club/uploads/posts/2022-07/1658358616_2-flomaster-club-p-zarodish-risunok-krasivo-2.jpg"
@@ -64,9 +73,24 @@ const MainContent = () => {
                                     onClose={handleClose}
                                     aria-labelledby="modal-modal-title"
                                     aria-describedby="modal-modal-description">
-                                    <StyledBox>
-                                        ddd
-                                    </StyledBox>
+                                    <StyledBoxDataModal>
+                                        <div className={s.modalBlock}>
+                                            <div className={s.modalIconBlock}>
+                                                <FaBaby style={{color: "white", fontSize: "30px", position: "absolute", top: "10%", left: "12%"}}/>
+                                            </div>
+                                            <div className={s.calendar}>
+                                                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                                    <MobileDatePicker
+                                                        label="Date mobile"
+                                                        inputFormat="MM/DD/YYYY"
+                                                        value={value}
+                                                        onChange={handleChange}
+                                                        renderInput={(params) => <TextField {...params} />}
+                                                    />
+                                                </LocalizationProvider>
+                                            </div>
+                                        </div>
+                                    </StyledBoxDataModal>
                                 </Modal>
                             </ImageListItem>
                         </div>
