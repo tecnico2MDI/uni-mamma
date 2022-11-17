@@ -5,13 +5,14 @@ import Modal from "@mui/material/Modal";
 import Avatar from 'react-avatar';
 import Fade from 'react-reveal/Fade';
 import Card from "./Card";
-import { StyledBoxDataModal, StyledLinearProgress} from "../../Styles/theme";
+import {StyledBoxDataModal, StyledLinearProgress, StyledTextField} from "../../Styles/theme";
 import { FaBaby } from 'react-icons/fa';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 
 import s from '../styles/MainContent.module.scss'
+import dayjs from "dayjs";
 
 const data = [
     {id: 1, title: "Conservazione del latte materno", type: "Allatamento", link: "https://unimamma.it/allattamento/conservazione-latte-materno/",img:"https://www.uppa.it/wp-content/uploads/2020/01/guida-allattamento-al-seno.jpg" },
@@ -34,14 +35,17 @@ if(term <= 12 ) {
     trimester ="Terzo trimestre"
 }
 
+
 const MainContent = () => {
     const [open, setOpen] = useState(false);
-    const [value, setValue] = useState(null);
+    const [value, setValue] = useState(dayjs(new Date()));
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const handleChange = (newValue) => {
         setValue(newValue);
     };
+
+    const preventDay = dayjs(value).add(9,"month").toDate().toDateString();
     return (
         <Box className={s.mainContent}>
             <Grid container>
@@ -78,17 +82,20 @@ const MainContent = () => {
                                             <div className={s.modalIconBlock}>
                                                 <FaBaby style={{color: "white", fontSize: "30px", position: "absolute", top: "10%", left: "12%"}}/>
                                             </div>
+                                            <div className={s.infoText}>Inserisci il primo giorno del tuo ultimo periodo o la data del concepimento</div>
                                             <div className={s.calendar}>
                                                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                                                     <MobileDatePicker
-                                                        label="Date mobile"
-                                                        inputFormat="MM/DD/YYYY"
+                                                        label="Inserisci la tua data"
+                                                        inputFormat="DD/MM/YYYY"
                                                         value={value}
                                                         onChange={handleChange}
-                                                        renderInput={(params) => <TextField {...params} />}
+                                                        renderInput={(params) => <StyledTextField {...params} />}
                                                     />
                                                 </LocalizationProvider>
                                             </div>
+                                            <div className={s.infoText}>Sulla base di questo, la data di nascita preliminare: </div>
+                                            <div className={s.preventDay}>{preventDay}</div>
                                         </div>
                                     </StyledBoxDataModal>
                                 </Modal>
