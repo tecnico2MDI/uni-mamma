@@ -1,6 +1,35 @@
 .infoCardsBlock {
-  height: 150px;
-  background: #49C8C4;
-  margin: 10px 5px ;
+  height: 100px;
+  margin: 20px 5px ;
   border-radius: 10px;
+  background: white;
+  padding: 20px;
+  position: relative;
+  box-shadow: 5px 5px 100px 2px rgba(128, 128, 128, 0.20);
+  .title {
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 30px;
+  }
+  .iconPosition {
+    position: absolute;
+    top: -18px;
+    left: 5px;
+    .iconBlock {
+      position: relative;
+      color: white;
+      background: rgba(73, 200, 196, 1);
+      height: 50px;
+      width: 50px;
+      border-radius: 100%;
+      box-shadow: 5px 5px 1px 2px rgba(73, 200, 196, 0.3);
+      .icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+      }
+    }
+  }
+
 }

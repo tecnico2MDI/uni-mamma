@@ -11,6 +11,9 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 import dayjs from "dayjs";
+import 'dayjs/locale/it-ch';
+import * as updateLocale from 'dayjs/plugin/updateLocale';
+import * as localizedFormat from 'dayjs/plugin/localizedFormat';
 import TodayIcon from '@mui/icons-material/Today';
 
 import s from '../styles/MainContent.module.scss'
@@ -26,6 +29,9 @@ const data = [
 
 
 const MainContent = () => {
+    dayjs.extend(updateLocale);
+    dayjs.extend(localizedFormat);
+    dayjs.locale('it-ch');
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState(dayjs(new Date()));
     const handleOpen = () => setOpen(true);
@@ -33,7 +39,7 @@ const MainContent = () => {
     const handleChange = (newValue) => {
         setValue(newValue);
     };
-    const preventDay = dayjs(value).add(9,"month").toDate().toDateString();
+    const preventDay = dayjs(value).add(9,"month").locale('it-ch').format("LL");
     const term = 14;
     const result = Math.round((term / 40) * 100)
 
