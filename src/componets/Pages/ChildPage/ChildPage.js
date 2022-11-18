@@ -18,12 +18,7 @@ const data = [
 const ChildPage = () => {
     return (
         <div className={s.childPageBlock}>
-            <Grid container>
-                <Grid item xs={12}>
-                    <InfoCards data={data}/>
-                </Grid>
-            </Grid>
-
+            <InfoCards data={data}/>
         </div>
     );
 };
