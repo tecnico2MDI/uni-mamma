@@ -22,6 +22,7 @@ const Android = () => {
 
     const handleChangeNav = (nav) => {
         setSelected(nav);
+
         if (nav === "download") {
             handleInstallPwa().then(() => {});
         }
