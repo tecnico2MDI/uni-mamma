@@ -1,89 +1,46 @@
-import React, {useEffect, useState} from 'react';
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
-import img from '../../img/logoTrasparente.png'
-import IosShareIcon from '@mui/icons-material/IosShare';
-import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
-import TimelineItem from '@mui/lab/TimelineItem';
-import TimelineSeparator from '@mui/lab/TimelineSeparator';
-import TimelineConnector from '@mui/lab/TimelineConnector';
-import { Grid, IconButton} from "@mui/material";
-import Tada from 'react-reveal/Tada';
+import React, { useState } from "react";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import img from "../../img/logoTrasparente.png";
+import IosShareIcon from "@mui/icons-material/IosShare";
+import AddBoxOutlinedIcon from "@mui/icons-material/AddBoxOutlined";
+import TimelineItem from "@mui/lab/TimelineItem";
+import TimelineSeparator from "@mui/lab/TimelineSeparator";
+import TimelineConnector from "@mui/lab/TimelineConnector";
+import { Grid, IconButton } from "@mui/material";
+import Tada from "react-reveal/Tada";
 import {
     StyledBox,
     StyledTimeline,
     StyledTimelineContent,
-    StyledTTimelineDot,
+    StyledTTimelineDot
 } from "../Styles/theme";
 import CloseIcon from "@mui/icons-material/Close";
-import {BottomNavigation, BottomNavigationAction} from "@material-ui/core";
-import Face4Icon from "@mui/icons-material/Face4";
-import ChildFriendlyIcon from "@mui/icons-material/ChildFriendly";
-import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
-import DownloadingIcon from "@mui/icons-material/Downloading";
 
-import s from './Styles/Modal.module.scss'
-
+import s from "./Styles/Modal.module.scss";
+import BottomNav from "../BottomNav";
 
 const Ios = () => {
-    useEffect(() => {
-        window.matchMedia('(display-mode: standalone)').addEventListener('change', (evt) => {
-            let displayMode = 'browser';
-            if (evt.matches) {
-                displayMode = 'standalone';
-            }
-            console.log('DISPLAY_MODE_CHANGED', displayMode);
-        });
-    }, [])
-
     const [open, setOpen] = React.useState(false);
+    const [selected, setSelected] = useState("mother");
+
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    const [selected, setSelected] = useState(0);
+    const handleChangeNav = (nav) => {
+        setSelected(nav);
+        if (nav === "download") {
+            handleOpen(true);
+        }
+    };
 
     return (
-        <div className={s.navBar} >
-            <BottomNavigation
-                value={selected}
-                onChange={(value, newValue) => {
-                    setSelected(newValue);
-                }}
-            >
-                <BottomNavigationAction
-                    style={{color: '#26BEB9'}}
-                    label="Mamma"
-                    icon={<Face4Icon/>}
-                />
-
-                <BottomNavigationAction
-                    style={{color: '#26BEB9'}}
-                    label="Bebe"
-                    icon={<ChildFriendlyIcon  />}
-                />
-                <BottomNavigationAction
-                    style={{color: '#26BEB9'}}
-                    label="Guida" icon={<ReceiptLongIcon />}
-                />
-                <div className={s.standalone}>
-                    <BottomNavigationAction
-                        style={{color: '#26BEB9'}}
-                        onClick={handleOpen}
-                        label="Aggiungi"
-                        icon={<DownloadingIcon  />}
-                    />
-                </div>
-            </BottomNavigation>
+        <div className={s.navBar}>
+            <BottomNav current={selected} onChange={handleChangeNav} />
 
             <div className={s.standalone}>
-                <Modal
-                    open={open}
-                    onClose={handleClose}
-                    className={s.standalone}
-                >
+                <Modal open={open} onClose={handleClose} className={s.standalone}>
                     <StyledBox className={s.standalone}>
-                        <Box className={s.mainTitle}>
-                            Installare la App sul tuo Iphone
-                        </Box>
+                        <Box className={s.mainTitle}>Installare la App sul tuo Iphone</Box>
 
                         <Grid container>
                             <Grid item xs={8}>
@@ -98,27 +55,29 @@ const Ios = () => {
                                 <StyledTimeline position="left">
                                     <TimelineItem position="left">
                                         <TimelineSeparator>
-                                            <StyledTTimelineDot sx={{background: '#ED1163'}}>
-                                                <IosShareIcon className={s.icon}/>
+                                            <StyledTTimelineDot sx={{ background: "#ED1163" }}>
+                                                <IosShareIcon className={s.icon} />
                                             </StyledTTimelineDot>
-                                            <TimelineConnector/>
+                                            <TimelineConnector />
                                         </TimelineSeparator>
                                         <StyledTimelineContent>Tocca</StyledTimelineContent>
                                     </TimelineItem>
                                     <TimelineItem>
                                         <TimelineSeparator>
                                             <StyledTTimelineDot>
-                                                <AddBoxOutlinedIcon className={s.icon}/>
+                                                <AddBoxOutlinedIcon className={s.icon} />
                                             </StyledTTimelineDot>
                                         </TimelineSeparator>
-                                        <StyledTimelineContent>Aggiungi a Home</StyledTimelineContent>
+                                        <StyledTimelineContent>
+                                            Aggiungi a Home
+                                        </StyledTimelineContent>
                                     </TimelineItem>
                                 </StyledTimeline>
                             </Grid>
                             <Grid item xs={4}>
                                 <Tada>
                                     <div className={s.imagineDrawer}>
-                                        <img src={img} alt=""/>
+                                        <img src={img} alt="" />
                                         <div className={s.title}>Uni mamma</div>
                                     </div>
                                 </Tada>
@@ -128,7 +87,6 @@ const Ios = () => {
                 </Modal>
             </div>
         </div>
-
     );
 };
 

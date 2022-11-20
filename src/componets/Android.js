@@ -1,61 +1,35 @@
-import React, {useEffect, useState} from 'react';
-import {BottomNavigation, BottomNavigationAction} from "@material-ui/core";
-import Face4Icon from "@mui/icons-material/Face4";
-import ChildFriendlyIcon from "@mui/icons-material/ChildFriendly";
-import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
-import DownloadingIcon from "@mui/icons-material/Downloading";
-
+import React, { useEffect, useState } from "react";
+import BottomNav from "./BottomNav";
 
 let deferredPrompt;
 
 const Android = () => {
-     const handleInstallPwa = async () => {
+    const [selected, setSelected] = useState("mother");
+
+    useEffect(() => {
+        window.addEventListener("beforeinstallprompt", (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+        });
+    }, []);
+
+    const handleInstallPwa = async () => {
         deferredPrompt.prompt();
         const { outcome } = await deferredPrompt.userChoice;
         console.log(`User response to the install prompt: ${outcome}`);
         deferredPrompt = null;
     };
 
-    useEffect(() => {
-
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-
-        });
-    }, [])
-
-    const [selected, setSelected] = useState(0);
+    const handleChangeNav = (nav) => {
+        setSelected(nav);
+        if (nav === "download") {
+            handleInstallPwa().then(() => {});
+        }
+    };
 
     return (
-        <div style={{width: "100%", position: "fixed", bottom: 0}}>
-            <BottomNavigation
-                value={selected}
-                onChange={(value, newValue) => {
-                    setSelected(newValue);
-                }}
-            >
-                <BottomNavigationAction
-                    style={{color: '#26BEB9'}}
-                    label="Mamma"
-                    icon={<Face4Icon/>}
-                />
-                <BottomNavigationAction
-                    style={{color: '#26BEB9'}}
-                    label="Bebe"
-                    icon={<ChildFriendlyIcon />}
-                />
-                <BottomNavigationAction
-                    style={{color: '#26BEB9'}}
-                    label="Guida"
-                    icon={<ReceiptLongIcon />}
-                />
-                <BottomNavigationAction
-                    style={{color: '#26BEB9'}}
-                    onClick={handleInstallPwa}
-                    label="Aggiungi"
-                    icon={<DownloadingIcon  />} />
-            </BottomNavigation>
+        <div style={{ width: "100%", position: "fixed", bottom: 0 }}>
+            <BottomNav current={selected} onChange={handleChangeNav} />
         </div>
     );
 };
