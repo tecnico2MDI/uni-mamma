@@ -17,36 +17,42 @@ const data = [
         imgPath:
             "https://www.cerretobio.com/images/cerreto/prodotti/ita/i-semi-tostati/semi-di-sesamo-tostati/semi-di-sesamo-tostati.png",
         height: ">1 mm",
-        weight: "1-2 mg"
+        weight: "1-2 mg",
+        title: "Semi di sesamo"
     },
     {
         imgPath:
             "https://www.cerretobio.com/images/cerreto/prodotti/ita/i-semi/semi-di-lino/semi-di-lino.png",
         height: "2 mm",
-        weight: "2-3 g"
+        weight: "2-3 g",
+        title: "Semi di lino"
     },
     {
         imgPath:
             "https://www.cerretobio.com/images/cerreto/prodotti/ita/i-legumi/lenticchie-verdi/lenticchie-verdi.png",
         height: "3 mm",
-        weight: "3-4 g"
+        weight: "3-4 g",
+        title: "Lenticche"
     },
     {
         imgPath:
             "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/TheStructorr_cherries.svg/1024px-TheStructorr_cherries.svg.png",
         height: "4 mm",
-        weight: "4-5 g"
+        weight: "4-5 g",
+        title: "Cherry"
     },
     {
         imgPath: "https://icons.veryicon.com/png/o/food--drinks/fruit-icon/blackberry-7.png",
         height: "5 mm",
-        weight: "5-6 g"
+        weight: "5-6 g",
+        title: "Blackberry"
     },
     {
         imgPath:
             "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/520-grapes.svg/800px-520-grapes.svg.png",
         height: "6 mm",
-        weight: "6-7 g"
+        weight: "6-7 g",
+        title: "Grape"
     }
 ];
 
@@ -117,17 +123,11 @@ const WeekSlider = () => {
                     </div>
                 ))}
             </SwipeableViews>
-            <Paper
-                square
-                elevation={0}
-                sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    height: 50,
-                    pl: 2
-                }}
-            >
+            <Paper square elevation={0}>
                 <Grid container>
+                    <Grid item xs={12}>
+                        <div className={s.title}>{data[activeStep].title}</div>
+                    </Grid>
                     <Grid item xs={6} p={1}>
                         <div className={s.heightBlock}>
                             Lunghezza: <div className={s.data}>{data[activeStep].height}</div>
