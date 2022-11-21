@@ -5,7 +5,7 @@ import Face4Icon from "@mui/icons-material/Face4";
 import ChildFriendlyIcon from "@mui/icons-material/ChildFriendly";
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
 import DownloadingIcon from "@mui/icons-material/Downloading";
-import s from "BottomNav.module.scss";
+import s from "./BottomNav.module.scss";
 const BottomNav = ({ current, onChange }) => {
     return (
         <div style={{ width: "100%", position: "fixed", bottom: 0 }}>
