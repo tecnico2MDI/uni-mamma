@@ -39,13 +39,14 @@ const BottomNav = ({ current, onChange }) => {
                     label="Guida"
                     icon={<ReceiptLongIcon />}
                 />
-                <BottomNavigationAction
-                    className={s.standalone}
-                    value="download"
-                    style={{ color: "#26BEB9" }}
-                    label="Aggiungi"
-                    icon={<DownloadingIcon />}
-                />
+                <div className={s.standalone}>
+                    <BottomNavigationAction
+                        value="download"
+                        style={{ color: "#26BEB9" }}
+                        label="Aggiungi"
+                        icon={<DownloadingIcon />}
+                    />
+                </div>
             </BottomNavigation>
         </div>
     );
