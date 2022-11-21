@@ -1,4 +1,10 @@
 .childPageBlock {
   padding: 20px;
   margin-bottom: 40px;
+
+  a {
+    outline: none;
+    text-decoration: none;
+    color: black;
+  }
 }

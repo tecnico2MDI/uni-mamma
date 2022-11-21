@@ -7,11 +7,13 @@ import Ios from "./Modals/Ios";
 import ChronologyPage from "./Pages/ChronologyPage/ChronologyPage";
 import ChildPage from "./Pages/ChildPage/ChildPage";
 import MainContent from "./Pages/MainPage/MainContent";
+import WeekInfo from "./Pages/ChildPage/Cards/WeekInfo";
 
 const Main = () => {
     return (
         <>
             <Routes>
+                <Route path="/info" element={<WeekInfo />} />
                 <Route path="/" element={<MainContent />} />
                 <Route path="/baby" element={<ChildPage />} />
                 <Route path="/guide" element={<ChronologyPage />} />

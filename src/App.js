@@ -10,6 +10,7 @@ import MainContent from "./componets/Pages/MainPage/MainContent";
 
 import s from "./App.module.scss";
 import Login from "./componets/Pages/Login";
+import WeekInfo from "./componets/Pages/ChildPage/Cards/WeekInfo";
 
 function App() {
     const [user, setUser] = useState(false);
@@ -34,7 +35,6 @@ function App() {
                         />
                         <Route path="/register" element={<RegisterForm />} />
                         <Route path="/recover-password" element={<RecoverPass />} />
-                        <Route path="/mamma" element={<MainContent />} />
                     </Routes>
                 </HashRouter>
             </div>

@@ -8,7 +8,7 @@ import DownloadingIcon from "@mui/icons-material/Downloading";
 import s from "./BottomNav.module.scss";
 const BottomNav = ({ current, onChange }) => {
     return (
-        <div style={{ width: "100%", position: "fixed", bottom: 0 }}>
+        <div style={{ width: "100%", position: "fixed", bottom: 0 }} className={s.navBar}>
             <BottomNavigation
                 value={current}
                 onChange={(value, newValue) => {
@@ -39,14 +39,13 @@ const BottomNav = ({ current, onChange }) => {
                     label="Guida"
                     icon={<ReceiptLongIcon />}
                 />
-                <div className={s.standalone}>
-                    <BottomNavigationAction
-                        value="download"
-                        style={{ color: "#26BEB9" }}
-                        label="Aggiungi"
-                        icon={<DownloadingIcon />}
-                    />
-                </div>
+                <BottomNavigationAction
+                    className={s.standalone}
+                    value="download"
+                    style={{ color: "#26BEB9" }}
+                    label="Aggiungi"
+                    icon={<DownloadingIcon />}
+                />
             </BottomNavigation>
         </div>
     );
