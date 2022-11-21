@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/uni-mamma/static/css/main.f0336848.css",
-    "main.js": "/uni-mamma/static/js/main.f761fb14.js",
+    "main.css": "/uni-mamma/static/css/main.596048e7.css",
+    "main.js": "/uni-mamma/static/js/main.f6075d7c.js",
     "static/js/787.031cb9ee.chunk.js": "/uni-mamma/static/js/787.031cb9ee.chunk.js",
     "static/media/logoTrasparente.png": "/uni-mamma/static/media/logoTrasparente.98bd97f9b35b08387794.png",
     "service-worker.js": "/uni-mamma/service-worker.js",
     "index.html": "/uni-mamma/index.html",
-    "main.f0336848.css.map": "/uni-mamma/static/css/main.f0336848.css.map",
-    "main.f761fb14.js.map": "/uni-mamma/static/js/main.f761fb14.js.map",
+    "main.596048e7.css.map": "/uni-mamma/static/css/main.596048e7.css.map",
+    "main.f6075d7c.js.map": "/uni-mamma/static/js/main.f6075d7c.js.map",
     "787.031cb9ee.chunk.js.map": "/uni-mamma/static/js/787.031cb9ee.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f0336848.css",
-    "static/js/main.f761fb14.js"
+    "static/css/main.596048e7.css",
+    "static/js/main.f6075d7c.js"
   ]
 }
