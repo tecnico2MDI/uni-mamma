@@ -8,6 +8,7 @@ import Button from "@mui/material/Button";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import SwipeableViews from "react-swipeable-views";
+import s from "../styles/CommonSliderStyles.module.scss";
 
 const data = [
     {
@@ -61,6 +62,7 @@ const WeekSlider = () => {
 
     return (
         <Box sx={{ maxWidth: 500, flexGrow: 1 }}>
+            <div className={s.week}>Settimana {activeStep}</div>
             <MobileStepper
                 variant="progress"
                 steps={6}

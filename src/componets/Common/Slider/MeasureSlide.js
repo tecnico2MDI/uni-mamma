@@ -8,9 +8,10 @@ import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import SwipeableViews from "react-swipeable-views";
 import { Grid } from "@mui/material";
-import s from "../styles/CommonSliderStyles.module.scss";
 import hImg from "../../../img/height.png";
 import wImg from "../../../img/weight.png";
+
+import s from "../styles/CommonSliderStyles.module.scss";
 
 const data = [
     {

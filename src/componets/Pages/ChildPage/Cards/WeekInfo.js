@@ -14,7 +14,6 @@ const WeekInfo = () => {
                     <ArrowBackIcon />
                 </IconButton>
             </div>
-            <div className={s.title}>Settimana 1</div>
             <div>
                 <WeekSlider />
             </div>
