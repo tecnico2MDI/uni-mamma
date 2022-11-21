@@ -3,47 +3,54 @@ import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MobileStepper from "@mui/material/MobileStepper";
 import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import SwipeableViews from "react-swipeable-views";
+import { Grid } from "@mui/material";
+import s from "../styles/CommonSliderStyles.module.scss";
+import hImg from "../../../img/height.png";
+import wImg from "../../../img/weight.png";
 
 const data = [
     {
         imgPath:
-            "https://www.nostrofiglio.it/images/2021/01/19/quattordicesima-settimana-di-gravidanza_900x760.jpg",
-        label: "Qui sara informazione ( setiimana 1) +imagine"
+            "https://www.cerretobio.com/images/cerreto/prodotti/ita/i-semi-tostati/semi-di-sesamo-tostati/semi-di-sesamo-tostati.png",
+        height: ">1 mm",
+        weight: "1-2 mg"
     },
     {
         imgPath:
-            "https://www.nostrofiglio.it/images/2021/01/19/quattordicesima-settimana-di-gravidanza_900x760.jpg",
-        label: "Qui sara informazione ( setiimana 2)"
+            "https://www.cerretobio.com/images/cerreto/prodotti/ita/i-semi/semi-di-lino/semi-di-lino.png",
+        height: "2 mm",
+        weight: "2-3 g"
     },
     {
         imgPath:
-            "https://www.nostrofiglio.it/images/2021/01/19/quattordicesima-settimana-di-gravidanza_900x760.jpg",
-        label: "Qui sara informazione ( setiimana 3)"
+            "https://www.cerretobio.com/images/cerreto/prodotti/ita/i-legumi/lenticchie-verdi/lenticchie-verdi.png",
+        height: "3 mm",
+        weight: "3-4 g"
     },
     {
         imgPath:
-            "https://www.nostrofiglio.it/images/2021/01/19/quattordicesima-settimana-di-gravidanza_900x760.jpg",
-        label: "Qui sara informazione ( setiimana 4)"
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/TheStructorr_cherries.svg/1024px-TheStructorr_cherries.svg.png",
+        height: "4 mm",
+        weight: "4-5 g"
+    },
+    {
+        imgPath: "https://icons.veryicon.com/png/o/food--drinks/fruit-icon/blackberry-7.png",
+        height: "5 mm",
+        weight: "5-6 g"
     },
     {
         imgPath:
-            "https://www.nostrofiglio.it/images/2021/01/19/quattordicesima-settimana-di-gravidanza_900x760.jpg",
-        label: "Qui sara informazione ( setiimana 5)"
-    },
-    {
-        imgPath:
-            "https://www.nostrofiglio.it/images/2021/01/19/quattordicesima-settimana-di-gravidanza_900x760.jpg",
-        label: "Qui sara informazione ( setiimana 6) + ALTRI "
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/520-grapes.svg/800px-520-grapes.svg.png",
+        height: "6 mm",
+        weight: "6-7 g"
     }
 ];
 
 const WeekSlider = () => {
-    console.log(data);
     const theme = useTheme();
     const [activeStep, setActiveStep] = React.useState(0);
 
@@ -104,7 +111,7 @@ const WeekSlider = () => {
                                     borderRadius: "5px"
                                 }}
                                 src={step.imgPath}
-                                alt={step.label}
+                                alt={step.img}
                             />
                         ) : null}
                     </div>
@@ -120,7 +127,21 @@ const WeekSlider = () => {
                     pl: 2
                 }}
             >
-                <Typography>{data[activeStep].label}</Typography>
+                <Grid container>
+                    <Grid item xs={6} p={1}>
+                        <div className={s.heightBlock}>
+                            Lunghezza: <div className={s.data}>{data[activeStep].height}</div>
+                        </div>
+                        <img src={hImg} alt="" />
+                    </Grid>
+                    <Grid item xs={6} p={1}>
+                        <div className={s.heightBlock}>
+                            {" "}
+                            Peso: <div className={s.data}>{data[activeStep].weight}</div>
+                        </div>
+                        <img src={wImg} alt="" />
+                    </Grid>
+                </Grid>
             </Paper>
         </Box>
     );
