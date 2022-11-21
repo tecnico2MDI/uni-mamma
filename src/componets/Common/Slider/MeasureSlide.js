@@ -74,6 +74,7 @@ const WeekSlider = () => {
 
     return (
         <Box sx={{ maxWidth: 500, flexGrow: 1 }}>
+            <div className={s.week}>Settimana {activeStep}</div>
             <MobileStepper
                 variant="progress"
                 steps={6}
@@ -131,15 +132,19 @@ const WeekSlider = () => {
                     <Grid item xs={6} p={1}>
                         <div className={s.heightBlock}>
                             Lunghezza: <div className={s.data}>{data[activeStep].height}</div>
+                            <img className={s.img} src={hImg} alt="img" />
                         </div>
-                        <img src={hImg} alt="" />
                     </Grid>
                     <Grid item xs={6} p={1}>
                         <div className={s.heightBlock}>
-                            {" "}
                             Peso: <div className={s.data}>{data[activeStep].weight}</div>
+                            <img
+                                className={s.img}
+                                style={{ marginBottom: "4px" }}
+                                src={wImg}
+                                alt="img"
+                            />
                         </div>
-                        <img src={wImg} alt="" />
                     </Grid>
                 </Grid>
             </Paper>

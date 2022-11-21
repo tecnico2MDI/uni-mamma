@@ -15,7 +15,6 @@ const ChildMeasures = () => {
                     <ArrowBackIcon />
                 </IconButton>
             </div>
-            <div className={s.title}>Settimana 1</div>
             <div className={s.carausel}>
                 <MeasureSlide />
             </div>
