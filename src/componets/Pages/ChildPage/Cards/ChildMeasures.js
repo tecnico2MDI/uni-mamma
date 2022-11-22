@@ -1,5 +1,5 @@
 import React from "react";
-import s from "./WeekInfo.module.scss";
+import s from "./styles/WeekInfo.module.scss";
 import { IconButton } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useNavigate } from "react-router-dom";
