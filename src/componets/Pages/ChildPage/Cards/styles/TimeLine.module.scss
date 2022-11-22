@@ -2,7 +2,7 @@
 .mainTimeLineBlock {
 
  .numbers {
-  height: 70vh;
+  height: 75vh;
   position: relative;
   padding: 0 10px;
   overflow: hidden;
@@ -22,7 +22,7 @@
    position: absolute;
    background: #49C8C4;
    color: white;
-   padding: 5px 20px;
+   padding: 10px 20px;
    text-align: center;
    border-radius: 10px;
    margin-top: 30px;
@@ -33,7 +33,7 @@
   }
   .line2 {
    @extend .line1;
-   top: 35px;
+   top: 30px;
    left: 300px;
    width: 205px;
   }
@@ -126,7 +126,7 @@
   padding: 5px 20px;
   text-align: center;
   border-radius: 10px;
-  margin-top: 350px;
+  margin-top: 370px;
   font-size: 12px;
   top: 80px;
   left: 200px;
@@ -160,7 +160,7 @@
   .vl {
    position: absolute;
    border-left: 4px solid rgba(238, 35, 111, 0.1);
-   height: 390px;
+   height: 425px;
    left: 228px;
    top: 33px;
   }
@@ -171,7 +171,7 @@
   .vl3 {
    @extend .vl;
    left: 1905px;
-   height: 260px;
+   height: 300px;
   }
  }
 }
