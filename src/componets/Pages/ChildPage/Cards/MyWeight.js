@@ -52,11 +52,7 @@ const MyWeight = () => {
                             startAdornment: <InputAdornment position="start">kg</InputAdornment>
                         }}
                     />
-                    <StyledButtonWeight
-                        style={{ padding: "10px" }}
-                        variant="outlined"
-                        type="submit"
-                    >
+                    <StyledButtonWeight style={{ padding: "10px" }} type="submit">
                         <span style={{ color: "#49C8C4" }}>Registra il tuo peso</span>
                     </StyledButtonWeight>
                 </form>
