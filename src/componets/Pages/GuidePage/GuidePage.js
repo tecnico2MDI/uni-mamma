@@ -19,7 +19,7 @@ const data = [
     },
     {
         id: 1,
-        title: "Indicazioni per la Nanna. " + "Sicura del Neonato",
+        title: "Indicazioni per la Nanna. Sicura del Neonato",
         type: "Gratis",
         link: "https://unimamma.it/risorse-gratuite/indicazioni-per-la-nanna-sicura-del-neonato/",
         img: "https://unimamma.it/wp-content/uploads/2022/03/Indicazioni-per-la-nanna-sicura-del-neonato-Corsi-Unimamma-Alessandra-Bellasio-2.jpg"
@@ -37,6 +37,10 @@ const GuidePage = () => {
         <div className={s.chronologyBlock}>
             <div className={s.title}> Tutti i corsi</div>
             <Card data={data} title={"Clicca Qui"} />
+            <a href="https://unimamma.it/videocorsi/" className={s.footerLink}>
+                {" "}
+                Per vedere tutti i corsi clicca qui...{" "}
+            </a>
         </div>
     );
 };
