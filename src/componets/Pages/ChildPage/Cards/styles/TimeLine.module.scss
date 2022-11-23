@@ -174,4 +174,38 @@
    height: 300px;
   }
  }
+ .image {
+  position: absolute;
+  top: 80px;
+  left: 1770px;
+  .img1 {
+   border-radius: 100%;
+  }
+ }
+ .image2 {
+  @extend .image;
+  top: 70px;
+  left: 778px;
+  .img2 {
+   @extend .img1;
+  }
+ }
+ .image3 {
+  @extend .image;
+  top: 170px;
+  left: 90px;
+  .img3 {
+   @extend .img1;
+  }
+ }
+ .image4 {
+  @extend .image;
+  top: 140px;
+  left: 1400px;
+  .img4 {
+   @extend .img1;
+  }
+ }
+
+
 }

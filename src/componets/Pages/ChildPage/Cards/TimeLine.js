@@ -6,6 +6,10 @@ import { useNavigate } from "react-router-dom";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import HearingIcon from "@mui/icons-material/Hearing";
 import RedeemIcon from "@mui/icons-material/Redeem";
+import img1 from "../../../../img/img1.jpg";
+import img2 from "../../../../img/img2.jpg";
+import img3 from "../../../../img/img3.jpg";
+import img4 from "../../../../img/img4.jpg";
 import s from "./styles/TimeLine.module.scss";
 
 const numbers = [];
@@ -61,6 +65,18 @@ const TimeLine = () => {
                         Termine
                     </div>
                     <div className={s.vl3}></div>
+                    <div className={s.image}>
+                        <img className={s.img1} src={img1} alt="" />
+                    </div>
+                    <div className={s.image2}>
+                        <img className={s.img2} src={img2} alt="" />
+                    </div>
+                    <div className={s.image3}>
+                        <img className={s.img3} src={img3} alt="" />
+                    </div>
+                    <div className={s.image4}>
+                        <img className={s.img4} src={img4} alt="" />
+                    </div>
                 </div>
             </div>
         </>
