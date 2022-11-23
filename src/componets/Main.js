@@ -4,7 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import Android from "./Android";
 import Browser from "./Browser";
 import Ios from "./Modals/Ios";
-import ChronologyPage from "./Pages/ChronologyPage/ChronologyPage";
+import GuidePage from "./Pages/GuidePage/GuidePage";
 import ChildPage from "./Pages/ChildPage/ChildPage";
 import MainContent from "./Pages/MainPage/MainContent";
 import WeekInfo from "./Pages/ChildPage/Cards/WeekInfo";
@@ -22,7 +22,7 @@ const Main = () => {
                 <Route path="/timeline" element={<TimeLine />} />
                 <Route path="/" element={<MainContent />} />
                 <Route path="/baby" element={<ChildPage />} />
-                <Route path="/guide" element={<ChronologyPage />} />
+                <Route path="/guide" element={<GuidePage />} />
             </Routes>
             {isBrowser && <Browser />}
             {isAndroid && <Android />}

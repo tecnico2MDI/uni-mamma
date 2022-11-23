@@ -183,7 +183,7 @@ const MainContent = () => {
                             </div>
                         </div>
                         <div className={s.secondBlock}>
-                            <Card data={data} />
+                            <Card data={data} title={"Continua a Leggere"} />
                         </div>
                     </Fade>
                 </Grid>
