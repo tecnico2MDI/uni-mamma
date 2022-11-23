@@ -15,7 +15,7 @@ const InfoCards = ({ data }) => {
                                 <div className={s.iconPosition}>
                                     <div className={s.iconBlock}>
                                         <div className={s.icon}>
-                                            <Icon />
+                                            <Icon style={{ fontSize: "40px" }} />
                                         </div>
                                     </div>
                                 </div>
