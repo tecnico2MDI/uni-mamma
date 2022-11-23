@@ -27,94 +27,94 @@
    border-radius: 10px;
    margin-top: 30px;
    font-size: 12px;
-   top: 72px;
+   top: 92px;
    width: max-content;
    font-weight: bold;
   }
   .line2 {
    @extend .line1;
-   top: 30px;
+   top: 40px;
    left: 300px;
    width: 205px;
   }
   .line3 {
    @extend .line1;
-   top: 100px;
+   top: 120px;
    left: 390px;
    width: 220px;
   }
   .line4 {
    @extend .line1;
-   top: 140px;
+   top: 160px;
    left: 480px;
    width: 180px;
   }
   .line5 {
    @extend .line1;
    background: rgba(148, 119, 215, 0.73);
-   top: 180px;
+   top: 210px;
    left: 300px;
    width: 205px;
   }
   .line6 {
    @extend .line1;
    background: rgba(148, 119, 215, 0.73);
-   top: 220px;
+   top: 260px;
    left: 300px;
    width: 205px;
   }
   .line7 {
    @extend .line1;
    background: #EE236F;
-   top: 260px;
+   top: 280px;
    left: 100px;
    width: 130px;
   }
   .line8 {
    @extend .line1;
    background: #6cabd5;
-   top: 350px;
+   top: 370px;
    left: 10px;
    width: 450px;
   }
   .line9 {
    @extend .line1;
    background: rgba(148, 119, 215, 0.73);
-   top: 220px;
+   top: 240px;
    left: 765px;
    width: 230px;
   }
   .line10 {
    @extend .line1;
    background: rgba(148, 119, 215, 0.73);
-   top: 260px;
+   top: 280px;
    left: 720px;
    width: 215px;
   }
   .line11 {
    @extend .line1;
-   top: 260px;
+   top: 280px;
    left: 1160px;
    width: 480px;
   }
   .line11 {
    @extend .line1;
    background: cornflowerblue;
-   top: 260px;
+   top: 280px;
    left: 1160px;
    width: 480px;
   }
   .line12 {
    @extend .line1;
    background: #EE236F;
-   top: 340px;
+   top: 360px;
    left: 1510px;
    width: 200px;
   }
   .line13 {
    @extend .line1;
    background: #EE236F;
-   top: 380px;
+   top: 400px;
    left: 1510px;
    width: 200px;
   }
@@ -128,7 +128,7 @@
   border-radius: 10px;
   margin-top: 370px;
   font-size: 12px;
-  top: 80px;
+  top: 130px;
   left: 200px;
   width: max-content;
   font-weight: bold;
@@ -143,7 +143,7 @@
  }
   .dot2 {
    @extend .dot1;
-   top: 80px;
+   top: 130px;
    left: 1045px;
    .icon {
    @extend .icon;
@@ -160,8 +160,8 @@
   .vl {
    position: absolute;
    border-left: 4px solid rgba(238, 35, 111, 0.1);
-   height: 425px;
-   left: 228px;
+   height: 460px;
+   left: 227px;
    top: 33px;
   }
   .vl2 {
@@ -171,7 +171,7 @@
   .vl3 {
    @extend .vl;
    left: 1905px;
-   height: 300px;
+   height: 280px;
   }
  }
  .image {
