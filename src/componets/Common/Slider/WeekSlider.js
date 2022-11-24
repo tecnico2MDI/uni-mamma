@@ -44,7 +44,6 @@ const data = [
 ];
 
 const WeekSlider = () => {
-    console.log(data);
     const theme = useTheme();
     const [activeStep, setActiveStep] = React.useState(0);
 
