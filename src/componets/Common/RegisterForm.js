@@ -1,12 +1,12 @@
-import React, {useState} from 'react';
-import {Grid, IconButton} from "@mui/material";
+import React, { useState } from "react";
+import { Grid, IconButton } from "@mui/material";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
-import {StyledButton, StyledTextField} from "../Styles/theme";
-import {Link} from "react-router-dom";
+import { StyledButton, StyledTextField } from "../Styles/theme";
+import { Link } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { useNavigate} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-import s from './styles/CoomonFormStyles.module.scss'
+import s from "./styles/CoomonFormStyles.module.scss";
 
 const RegisterForm = () => {
     const navigate = useNavigate();
@@ -15,7 +15,7 @@ const RegisterForm = () => {
         name: "",
         surname: "",
         password: "",
-        repeatPassword: "",
+        repeatPassword: ""
     });
 
     const { password, repeatPassword } = contactInfo;
@@ -29,14 +29,15 @@ const RegisterForm = () => {
         }
     };
 
-
-    const changeHandler = e => {
-        setContactInfo({...contactInfo,[e.target.name]:e.target.value});
-    }
+    const changeHandler = (e) => {
+        setContactInfo({ ...contactInfo, [e.target.name]: e.target.value });
+    };
     return (
         <div>
             <div className={s.goBackButton}>
-                <IconButton  onClick={() => navigate(-1)}><ArrowBackIcon/></IconButton>
+                <IconButton onClick={() => navigate(-1)}>
+                    <ArrowBackIcon />
+                </IconButton>
             </div>
             <div className={s.mainForm}>
                 <Grid container>
@@ -48,84 +49,85 @@ const RegisterForm = () => {
                             <div className={s.title}>Registati ora</div>
                         </div>
                         <form onSubmit={onSubmit}>
-                            <StyledTextField sx={{minWidth: "90%"}}
-                                             value={contactInfo.email}
-                                             onChange={changeHandler}
-                                             id="email"
-                                             label="Email"
-                                             type="email"
-                                             name="email"
-                                             autoComplete="email"
-                                             margin="normal"
-                                             variant="outlined"
-                                             required
-                                             autoFocus
+                            <StyledTextField
+                                sx={{ minWidth: "90%" }}
+                                value={contactInfo.email}
+                                onChange={changeHandler}
+                                id="email"
+                                label="Email"
+                                type="email"
+                                name="email"
+                                autoComplete="email"
+                                margin="normal"
+                                variant="outlined"
+                                required
+                                autoFocus
                             />
-                            <StyledTextField sx={{minWidth: "90%"}}
-                                             value={contactInfo.name}
-                                             onChange={changeHandler}
-                                             id="Name"
-                                             label="Nome"
-                                             type="name"
-                                             name="name"
-                                             autoComplete="name"
-                                             margin="normal"
-                                             variant="outlined"
-                                             required
-                                             autoFocus
+                            <StyledTextField
+                                sx={{ minWidth: "90%" }}
+                                value={contactInfo.name}
+                                onChange={changeHandler}
+                                id="Name"
+                                label="Nome"
+                                type="name"
+                                name="name"
+                                autoComplete="name"
+                                margin="normal"
+                                variant="outlined"
+                                required
                             />
-                            <StyledTextField sx={{minWidth: "90%"}}
-                                             value={contactInfo.surname}
-                                             onChange={changeHandler}
-                                             id="surname"
-                                             label="Cognome"
-                                             type="surname"
-                                             name="surname"
-                                             autoComplete="surname"
-                                             margin="normal"
-                                             variant="outlined"
-                                             required
-                                             autoFocus
+                            <StyledTextField
+                                sx={{ minWidth: "90%" }}
+                                value={contactInfo.surname}
+                                onChange={changeHandler}
+                                id="surname"
+                                label="Cognome"
+                                type="surname"
+                                name="surname"
+                                autoComplete="surname"
+                                margin="normal"
+                                variant="outlined"
+                                required
                             />
-                            <StyledTextField sx={{minWidth: "90%"}}
-                                             value={contactInfo.password}
-                                             onChange={changeHandler}
-                                             id="outlined"
-                                             label="Password"
-                                             type="password"
-                                             name="password"
-                                             autoComplete="current-password"
-                                             margin="normal"
-                                             variant="outlined"
-                                             required
+                            <StyledTextField
+                                sx={{ minWidth: "90%" }}
+                                value={contactInfo.password}
+                                onChange={changeHandler}
+                                id="outlined"
+                                label="Password"
+                                type="password"
+                                name="password"
+                                autoComplete="current-password"
+                                margin="normal"
+                                variant="outlined"
+                                required
                             />
-                            <StyledTextField sx={{minWidth: "90%"}}
-                                             value={contactInfo.repeatPassword}
-                                             onChange={changeHandler}
-                                             id="outlined"
-                                             label="Repeat Password"
-                                             type="password"
-                                             name="repeatPassword"
-                                             autoComplete="current-password"
-                                             margin="normal"
-                                             variant="outlined"
-                                             required
+                            <StyledTextField
+                                sx={{ minWidth: "90%" }}
+                                value={contactInfo.repeatPassword}
+                                onChange={changeHandler}
+                                id="outlined"
+                                label="Repeat Password"
+                                type="password"
+                                name="repeatPassword"
+                                autoComplete="current-password"
+                                margin="normal"
+                                variant="outlined"
+                                required
                             />
 
-
-                            <StyledButton sx={{marginTop: '20px'}}
-                                          variant="outlined"
-                                          type="submit"
+                            <StyledButton
+                                sx={{ marginTop: "20px" }}
+                                variant="outlined"
+                                type="submit"
                             >
                                 <b>Registrati</b>
                             </StyledButton>
 
                             <div className={s.accountBlock}>
-                                <div className={s.title}>
-                                    Hai gia il account?
-                                </div>
+                                <div className={s.title}>Hai gia il account?</div>
                                 <div className={s.saveTitle}>
-                                    <Link to ="/login">LogIn</Link>
+                                    <Link to="/login">LogIn</Link>
                                 </div>
                             </div>
                         </form>
@@ -133,7 +135,6 @@ const RegisterForm = () => {
                 </Grid>
             </div>
         </div>
-
     );
 };
 

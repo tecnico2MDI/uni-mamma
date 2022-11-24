@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import {
-    Grid,
     Box,
+    Grid,
+    IconButton,
     ImageListItem,
     ImageListItemBar,
-    IconButton,
     InputAdornment
 } from "@mui/material";
 import SettingsIcon from "@mui/icons-material/Settings";
@@ -64,7 +64,6 @@ const data = [
         link: "https://unimamma.it/allattamento/cura-delle-ragadi/"
     }
 ];
-// termin settimani
 
 const MainContent = () => {
     const isLoadingUser = useSelector(selectIsLoading);
@@ -81,9 +80,21 @@ const MainContent = () => {
     };
     const preventDay = dayjs(value).add(9, "month").locale("it-ch").format("LL");
 
-    const term = 14;
-    const result = Math.round((term / 40) * 100);
+    //termen settimani
+    const date1 = dayjs(new Date());
+    const date2 = dayjs(value);
+    const numberOfWeeks = date1.diff(date2, "week");
 
+    let term;
+    if (numberOfWeeks <= 43) {
+        term = numberOfWeeks;
+    } else {
+        term = 0;
+    }
+
+    //termen nascita
+    const result = Math.round((term / 43) * 100);
+    //trimester
     let trimester;
     if (term <= 12) {
         trimester = "Primo trimestre";
