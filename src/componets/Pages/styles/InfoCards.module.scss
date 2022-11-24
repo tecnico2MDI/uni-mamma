@@ -1,3 +1,9 @@
+.infoCardsMain {
+  @media (min-width: 1000px)  {
+    width: 500px;
+    margin: 0 auto;
+  }
+}
 .infoCardsBlock {
   height: 140px;
   margin: 15px 7px ;

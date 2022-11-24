@@ -1,6 +1,10 @@
 .childPageBlock {
   padding: 20px;
   margin-bottom: 40px;
+  @media (min-width: 1000px)  {
+    width: 600px;
+    margin: 0 auto;
+  }
 
   a {
     outline: none;

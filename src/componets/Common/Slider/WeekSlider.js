@@ -98,9 +98,8 @@ const WeekSlider = () => {
                             <Box
                                 component="img"
                                 sx={{
-                                    height: 250,
+                                    minHeight: 250,
                                     display: "block",
-                                    maxWidth: 400,
                                     overflow: "hidden",
                                     width: "100%",
                                     borderRadius: "5px"

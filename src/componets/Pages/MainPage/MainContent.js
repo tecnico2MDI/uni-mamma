@@ -90,8 +90,8 @@ const MainContent = () => {
     }
     return (
         <Box className={s.mainContent}>
-            <Grid container>
-                <Grid item xs={12} sm={4} md={4} lg={4}>
+            <Grid container direction="row" justifyContent="center" alignItems="center">
+                <Grid item xs={12} sm={4} md={4} lg={5}>
                     <Fade>
                         <div className={s.firstBlock}>
                             <div className={s.title}>Buongiorno Marina</div>

@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 
 const InfoCards = ({ data }) => {
     return (
-        <>
+        <div>
             <Grid container>
                 {data.map(({ title, Icon, link }) => (
-                    <Grid item xs={6}>
+                    <Grid item xs={6} sm={6} md={6} lg={6}>
                         <Link to={link}>
                             <div className={s.infoCardsBlock}>
                                 <div className={s.title}>{title}</div>
@@ -24,7 +24,7 @@ const InfoCards = ({ data }) => {
                     </Grid>
                 ))}
             </Grid>
-        </>
+        </div>
     );
 };
 

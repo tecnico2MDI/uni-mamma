@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
+import BottomNav from "./BottomNav";
 
 const Browser = () => {
     return (
         <div>
-            this is browser
+            <BottomNav />
         </div>
     );
 };

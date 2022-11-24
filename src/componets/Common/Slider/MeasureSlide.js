@@ -113,7 +113,6 @@ const WeekSlider = () => {
                                 sx={{
                                     height: 250,
                                     display: "block",
-                                    maxWidth: 400,
                                     overflow: "hidden",
                                     width: "100%",
                                     borderRadius: "5px"
