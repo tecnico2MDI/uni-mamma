@@ -186,6 +186,11 @@ const MainContent = () => {
                             <Card data={data} title={"Continua a Leggere"} />
                         </div>
                     </Fade>
+                    <div className={s.footerLink}>
+                        <a href="hhttps://unimamma.it/blog/">
+                            Per vedere tutti i articoli clicca qui...
+                        </a>
+                    </div>
                 </Grid>
             </Grid>
         </Box>

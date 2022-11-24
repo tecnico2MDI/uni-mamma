@@ -87,6 +87,16 @@
     padding: 15px;
     background: rgba(73, 200, 196, 0.2);
   }
+}
 
+.footerLink {
+  font-size: 20px;
+  text-decoration: none;
+  outline: none;
+  padding-bottom: 70px;
+  font-weight: bold;
+  a {
+    color: #26BFB9;
+  }
 }
 
