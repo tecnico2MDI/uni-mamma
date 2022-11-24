@@ -158,3 +158,9 @@ export const StyledBoxDataModal = styled("div")`
     padding: 20px;
     border-radius: 5px;
 `;
+
+export const StyledBoxNav = styled("div")`
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+`;

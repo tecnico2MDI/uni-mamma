@@ -1,6 +1,7 @@
 import React from "react";
-import s from "../styles/GuidePage.module.scss";
+import Fade from "react-reveal/Fade";
 import Card from "../MainPage/Card";
+import s from "../styles/GuidePage.module.scss";
 
 const data = [
     {
@@ -35,11 +36,15 @@ const data = [
 const GuidePage = () => {
     return (
         <div className={s.chronologyBlock}>
-            <div className={s.title}> Tutti i corsi</div>
-            <Card data={data} title={"Clicca Qui"} />
-            <div className={s.footerLink}>
-                <a href="https://unimamma.it/videocorsi/">Per vedere tutti i corsi clicca qui...</a>
-            </div>
+            <Fade>
+                <div className={s.title}> Tutti i corsi</div>
+                <Card data={data} title={"Clicca Qui"} />
+                <div className={s.footerLink}>
+                    <a href="https://unimamma.it/videocorsi/">
+                        Per vedere tutti i corsi clicca qui...
+                    </a>
+                </div>
+            </Fade>
         </div>
     );
 };

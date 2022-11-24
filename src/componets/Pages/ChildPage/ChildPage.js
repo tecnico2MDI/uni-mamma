@@ -4,6 +4,7 @@ import DateRangeIcon from "@mui/icons-material/DateRange";
 import StraightenIcon from "@mui/icons-material/Straighten";
 import EventRepeatIcon from "@mui/icons-material/EventRepeat";
 import MonitorWeightIcon from "@mui/icons-material/MonitorWeight";
+import Fade from "react-reveal/Fade";
 
 import s from "../styles/ChildPage.module.scss";
 
@@ -17,7 +18,9 @@ const data = [
 const ChildPage = () => {
     return (
         <div className={s.childPageBlock}>
-            <InfoCards data={data} />
+            <Fade>
+                <InfoCards data={data} />
+            </Fade>
         </div>
     );
 };

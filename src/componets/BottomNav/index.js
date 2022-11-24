@@ -7,6 +7,7 @@ import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
 import DownloadingIcon from "@mui/icons-material/Downloading";
 import { makeStyles } from "@material-ui/core/styles";
 import s from "./BottomNav.module.scss";
+import { StyledBoxNav } from "../Styles/theme";
 
 const useStyles = makeStyles({
     root: {
@@ -18,7 +19,7 @@ const BottomNav = ({ current, onChange }) => {
     const classes = useStyles();
 
     return (
-        <div style={{ width: "100%", position: "fixed", bottom: 0 }} className={s.navBar}>
+        <StyledBoxNav>
             <BottomNavigation
                 value={current}
                 className={classes.root}
@@ -58,7 +59,7 @@ const BottomNav = ({ current, onChange }) => {
                     icon={<DownloadingIcon />}
                 />
             </BottomNavigation>
-        </div>
+        </StyledBoxNav>
     );
 };
 
