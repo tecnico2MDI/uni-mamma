@@ -5,12 +5,23 @@ import Face4Icon from "@mui/icons-material/Face4";
 import ChildFriendlyIcon from "@mui/icons-material/ChildFriendly";
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
 import DownloadingIcon from "@mui/icons-material/Downloading";
+import { makeStyles } from "@material-ui/core/styles";
 import s from "./BottomNav.module.scss";
+
+const useStyles = makeStyles({
+    root: {
+        height: 80
+    }
+});
+
 const BottomNav = ({ current, onChange }) => {
+    const classes = useStyles();
+
     return (
         <div style={{ width: "100%", position: "fixed", bottom: 0 }} className={s.navBar}>
             <BottomNavigation
                 value={current}
+                className={classes.root}
                 onChange={(value, newValue) => {
                     onChange(newValue);
                 }}
