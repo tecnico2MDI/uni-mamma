@@ -145,6 +145,9 @@ export const StyledBox = styled("div")`
     background-color: white;
     padding: 35px;
     border-radius: 10px;
+    @media (min-width: 1000px) {
+        width: 34%;
+    }
 `;
 
 export const StyledBoxDataModal = styled("div")`
@@ -157,6 +160,9 @@ export const StyledBoxDataModal = styled("div")`
     background-color: white;
     padding: 20px;
     border-radius: 5px;
+    @media (min-width: 1000px) {
+        width: 45%;
+    }
 `;
 
 export const StyledBoxNav = styled("div")`
