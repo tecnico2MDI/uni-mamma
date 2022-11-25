@@ -2,6 +2,7 @@ import React from "react";
 import Fade from "react-reveal/Fade";
 import Card from "../MainPage/Card";
 import s from "../styles/GuidePage.module.scss";
+import { Grid } from "@mui/material";
 
 const data = [
     {
@@ -36,13 +37,19 @@ const data = [
 const GuidePage = () => {
     return (
         <div className={s.chronologyBlock}>
-            <div className={s.title}> Tutti i corsi</div>
-            <Fade>
-                <Card data={data} title={"Clicca Qui"} />
-            </Fade>
-            <div className={s.footerLink}>
-                <a href="https://unimamma.it/videocorsi/">Per vedere tutti i corsi clicca qui...</a>
-            </div>
+            <Grid container direction="row" justifyContent="center" alignItems="center">
+                <Grid xs={12} sm={8} md={8} lg={5}>
+                    <div className={s.title}> Tutti i corsi</div>
+                    <Fade>
+                        <Card data={data} title={"Clicca Qui"} />
+                    </Fade>
+                    <div className={s.footerLink}>
+                        <a href="https://unimamma.it/videocorsi/">
+                            Per vedere tutti i corsi clicca qui...
+                        </a>
+                    </div>
+                </Grid>
+            </Grid>
         </div>
     );
 };
