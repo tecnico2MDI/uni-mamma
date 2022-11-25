@@ -12,6 +12,8 @@ const data = [
     { title: "Info settiminale", Icon: DateRangeIcon, link: "/info" },
     { title: "Dimensioni", Icon: StraightenIcon, link: "/baby-measures" },
     { title: "Linea del tempo", Icon: EventRepeatIcon, link: "/timeline" },
+    { title: "Il mio peso", Icon: MonitorWeightIcon, link: "/my-weight" },
+    { title: "Il mio peso", Icon: MonitorWeightIcon, link: "/my-weight" },
     { title: "Il mio peso", Icon: MonitorWeightIcon, link: "/my-weight" }
 ];
 
