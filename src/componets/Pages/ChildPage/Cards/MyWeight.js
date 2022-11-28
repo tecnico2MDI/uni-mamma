@@ -5,16 +5,22 @@ import { useNavigate } from "react-router-dom";
 import styles from "./styles/WeekInfo.module.scss";
 import s from "./styles/MyWeight.module.scss";
 import { StyledButtonWeight, StyledTextField } from "../../../Styles/theme";
+import { useDispatch, useSelector } from "react-redux";
+import { selectUser, updateUser } from "../../../../store/slice/user-slice";
 
 const MyWeight = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const user = useSelector(selectUser);
+
     const [weight, setWeight] = useState({
-        firstWeight: 0,
-        secondWeight: 0
+        firstWeight: user.firstWeight,
+        secondWeight: user.secondWeight
     });
 
-    const changeHandler = (e) => {
-        setWeight({ ...weight, [e.target.name]: e.target.value });
+    const changeHandler = (e, newValue) => {
+        setWeight(newValue);
+        dispatch(updateUser({ ...weight, [e.target.name]: e.target.value }));
     };
 
     function handleSubmit(e) {

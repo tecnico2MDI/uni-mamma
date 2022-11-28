@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import getUsers from "./action/get-users";
+import login from "./action/login";
 
 const initialState = {
     identity: undefined,
@@ -10,18 +10,25 @@ const initialState = {
 export const usersSlice = createSlice({
     name: "user",
     initialState,
-    reducers: {},
+    reducers: {
+        updateUser: (state, { payload }) => {
+            state.identity = {
+                ...state.identity,
+                ...payload
+            };
+        }
+    },
     extraReducers: (builder) => {
-        builder.addCase(getUsers.pending, (state) => {
+        builder.addCase(login.pending, (state) => {
             state.loading = true;
         });
 
-        builder.addCase(getUsers.fulfilled, (state, { payload }) => {
+        builder.addCase(login.fulfilled, (state, { payload }) => {
             state.loading = false;
             state.identity = payload;
         });
 
-        builder.addCase(getUsers.rejected, (state, { error }) => {
+        builder.addCase(login.rejected, (state, { error }) => {
             state.loading = false;
             state.error = error.message;
         });
@@ -29,5 +36,8 @@ export const usersSlice = createSlice({
 });
 
 export const selectIsLoading = (state) => state.user.loading;
+export const selectUser = (state) => state.user.identity;
+
+export const { updateUser } = usersSlice.actions;
 
 export default usersSlice.reducer;

@@ -12,6 +12,8 @@ import hImg from "../../../img/height.png";
 import wImg from "../../../img/weight.png";
 
 import s from "../styles/CommonSliderStyles.module.scss";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../../store/slice/user-slice";
 
 const data = [
     {
@@ -58,8 +60,9 @@ const data = [
 ];
 
 const WeekSlider = () => {
+    const user = useSelector(selectUser);
     const theme = useTheme();
-    const [activeStep, setActiveStep] = React.useState(0);
+    const [activeStep, setActiveStep] = React.useState(user.weeks);
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);

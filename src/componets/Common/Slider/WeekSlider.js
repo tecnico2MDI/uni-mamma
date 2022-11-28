@@ -9,6 +9,8 @@ import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import SwipeableViews from "react-swipeable-views";
 import s from "../styles/CommonSliderStyles.module.scss";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../../store/slice/user-slice";
 
 const data = [
     {
@@ -45,7 +47,8 @@ const data = [
 
 const WeekSlider = () => {
     const theme = useTheme();
-    const [activeStep, setActiveStep] = React.useState(0);
+    const user = useSelector(selectUser);
+    const [activeStep, setActiveStep] = React.useState(user.weeks);
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);

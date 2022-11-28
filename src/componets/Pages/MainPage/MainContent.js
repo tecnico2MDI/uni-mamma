@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {
     Box,
+    CircularProgress,
     Grid,
     IconButton,
     ImageListItem,
@@ -24,8 +25,9 @@ import * as localizedFormat from "dayjs/plugin/localizedFormat";
 import TodayIcon from "@mui/icons-material/Today";
 
 import s from "../styles/MainContent.module.scss";
-import { useSelector } from "react-redux";
-import { selectIsLoading } from "../../../store/slice/user-slice";
+import { useDispatch, useSelector } from "react-redux";
+import { selectIsLoading, selectUser, updateUser } from "../../../store/slice/user-slice";
+import Button from "@mui/material/Button";
 
 const data = [
     {
@@ -66,20 +68,23 @@ const data = [
 ];
 
 const MainContent = () => {
-    const isLoadingUser = useSelector(selectIsLoading);
+    const dispatch = useDispatch();
+    const loading = useSelector(selectIsLoading);
+    const user = useSelector(selectUser);
 
     dayjs.extend(updateLocale);
     dayjs.extend(localizedFormat);
     dayjs.locale("it-ch");
     const [open, setOpen] = useState(false);
-    const [value, setValue] = useState(dayjs(new Date()));
+    const [value, setValue] = useState(dayjs(new Date(user.date)));
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const handleChange = (newValue) => {
         setValue(newValue);
+        dispatch(updateUser({ newMensDate: dayjs(newValue).format("LL") }));
     };
-    const preventDay = dayjs(value).add(9, "month").locale("it-ch").format("LL");
 
+    const preventDay = dayjs(value).add(9, "month").locale("it-ch").format("LL");
     //termen settimani
     const date1 = dayjs(new Date());
     const date2 = dayjs(value);
@@ -91,7 +96,6 @@ const MainContent = () => {
     } else {
         term = 0;
     }
-
     //termen nascita
     const result = Math.round((term / 43) * 100);
     //trimester
@@ -105,128 +109,128 @@ const MainContent = () => {
     }
     return (
         <div>
-            {isLoadingUser ? (
-                <div>loading...</div>
-            ) : (
-                <Box className={s.mainContent}>
-                    <Grid container direction="row" justifyContent="center" alignItems="center">
-                        <Grid item xs={12} sm={8} md={8} lg={5}>
-                            <Fade>
-                                <div className={s.firstBlock}>
-                                    <div className={s.title}>Buongiorno Marina</div>
-                                    <div className={s.avatar}>
-                                        <Avatar
-                                            color="#EE236F"
-                                            name="Marina Gherman"
-                                            round={true}
-                                            size="60"
-                                        />
-                                    </div>
-                                    <ImageListItem>
-                                        <img
-                                            src="https://flomaster.club/uploads/posts/2022-07/1658358616_2-flomaster-club-p-zarodish-risunok-krasivo-2.jpg"
-                                            loading="lazy"
-                                            alt="img"
-                                        />
-                                        <ImageListItemBar
-                                            title={`Sei a settimana: ${term}`}
-                                            // subtitle="Settimana: 7"
-                                            actionIcon={
-                                                <IconButton
-                                                    aria-label={`info about`}
-                                                    onClick={handleOpen}
-                                                >
-                                                    <SettingsIcon
+            <Box className={s.mainContent}>
+                <Grid container direction="row" justifyContent="center" alignItems="center">
+                    <Grid item xs={12} sm={8} md={8} lg={5}>
+                        <Fade>
+                            <div className={s.firstBlock}>
+                                <div className={s.title}>Buongiorno {user.name} </div>
+                                <div className={s.avatar}>
+                                    <Avatar
+                                        color="#EE236F"
+                                        name={`${user.name} ${user.surname}`}
+                                        round={true}
+                                        size="60"
+                                    />
+                                </div>
+                                <ImageListItem>
+                                    <img
+                                        src="https://flomaster.club/uploads/posts/2022-07/1658358616_2-flomaster-club-p-zarodish-risunok-krasivo-2.jpg"
+                                        loading="lazy"
+                                        alt="img"
+                                    />
+                                    <ImageListItemBar
+                                        title={`Sei a settimana: ${term}`}
+                                        // subtitle="Settimana: 7"
+                                        actionIcon={
+                                            <IconButton
+                                                aria-label={`info about`}
+                                                onClick={handleOpen}
+                                            >
+                                                <SettingsIcon
+                                                    style={{
+                                                        color: "white",
+                                                        marginRight: "10px"
+                                                    }}
+                                                />
+                                            </IconButton>
+                                        }
+                                    />
+                                    <Modal open={open} onClose={handleClose}>
+                                        <StyledBoxDataModal>
+                                            <div className={s.modalBlock}>
+                                                <div className={s.modalIconBlock}>
+                                                    <FaBaby
                                                         style={{
                                                             color: "white",
-                                                            marginRight: "10px"
+                                                            fontSize: "30px",
+                                                            position: "absolute",
+                                                            top: "10%",
+                                                            left: "12%"
                                                         }}
                                                     />
-                                                </IconButton>
-                                            }
-                                        />
-                                        <Modal open={open} onClose={handleClose}>
-                                            <StyledBoxDataModal>
-                                                <div className={s.modalBlock}>
-                                                    <div className={s.modalIconBlock}>
-                                                        <FaBaby
-                                                            style={{
-                                                                color: "white",
-                                                                fontSize: "30px",
-                                                                position: "absolute",
-                                                                top: "10%",
-                                                                left: "12%"
-                                                            }}
-                                                        />
-                                                    </div>
-                                                    <div className={s.infoText}>
-                                                        Inserisci la data del 1º giorno dell'ultima
-                                                        menstruazione:
-                                                    </div>
-                                                    <div className={s.calendar}>
-                                                        <LocalizationProvider
-                                                            dateAdapter={AdapterDayjs}
-                                                        >
-                                                            <MobileDatePicker
-                                                                label="Inserisci la tua data"
-                                                                inputFormat="DD/MM/YYYY"
-                                                                value={value}
-                                                                onChange={handleChange}
-                                                                renderInput={(params) => (
-                                                                    <StyledTextField
-                                                                        {...params}
-                                                                        InputProps={{
-                                                                            endAdornment: (
-                                                                                <InputAdornment position="end">
-                                                                                    <TodayIcon
-                                                                                        sx={{
-                                                                                            color: "#EE236F"
-                                                                                        }}
-                                                                                    />
-                                                                                </InputAdornment>
-                                                                            )
-                                                                        }}
-                                                                    />
-                                                                )}
-                                                            />
-                                                        </LocalizationProvider>
-                                                    </div>
-                                                    <div className={s.infoText}>
-                                                        Sulla base di questo, la data di nascita
-                                                        preliminare:{" "}
-                                                    </div>
-                                                    <div className={s.preventDay}>{preventDay}</div>
                                                 </div>
-                                            </StyledBoxDataModal>
-                                        </Modal>
-                                    </ImageListItem>
-                                </div>
-                                <div className={s.progressBarBlock}>
-                                    <div className={s.title}>
-                                        {`settimana ${term} di gravidanza`}{" "}
-                                    </div>
-                                    <div className={s.subTitle}>{trimester}</div>
-                                    <div className={s.progressBar}>
-                                        <div className={s.percentResult}>{result}%</div>
-                                        <StyledLinearProgress
-                                            variant="determinate"
-                                            value={result}
-                                        />
-                                    </div>
-                                </div>
-                                <div className={s.secondBlock}>
-                                    <Card data={data} title={"Continua a Leggere"} />
-                                </div>
-                            </Fade>
-                            <div className={s.footerLink}>
-                                <a href="https://unimamma.it/blog/">
-                                    Per vedere tutti i articoli clicca qui...
-                                </a>
+                                                <div className={s.infoText}>
+                                                    Inserisci la data del 1º giorno dell'ultima
+                                                    menstruazione:
+                                                </div>
+                                                <div className={s.calendar}>
+                                                    <LocalizationProvider
+                                                        dateAdapter={AdapterDayjs}
+                                                    >
+                                                        <MobileDatePicker
+                                                            label="Inserisci la tua data"
+                                                            inputFormat="DD/MM/YYYY"
+                                                            value={value}
+                                                            onChange={handleChange}
+                                                            renderInput={(params) => (
+                                                                <StyledTextField
+                                                                    {...params}
+                                                                    InputProps={{
+                                                                        endAdornment: (
+                                                                            <InputAdornment position="end">
+                                                                                <TodayIcon
+                                                                                    sx={{
+                                                                                        color: "#EE236F"
+                                                                                    }}
+                                                                                />
+                                                                            </InputAdornment>
+                                                                        )
+                                                                    }}
+                                                                />
+                                                            )}
+                                                        />
+                                                    </LocalizationProvider>
+                                                </div>
+                                                <div className={s.infoText}>
+                                                    Sulla base di questo, la data di nascita
+                                                    preliminare:{" "}
+                                                </div>
+                                                <div className={s.preventDay}>{preventDay}</div>
+                                                <div>
+                                                    {loading ? (
+                                                        <CircularProgress
+                                                            style={{ color: "#26BEB9" }}
+                                                        />
+                                                    ) : (
+                                                        <Button onClick={handleClose}>Salva</Button>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        </StyledBoxDataModal>
+                                    </Modal>
+                                </ImageListItem>
                             </div>
-                        </Grid>
+                            <div className={s.progressBarBlock}>
+                                <div className={s.title}>{`settimana ${term} di gravidanza`} </div>
+                                <div className={s.subTitle}>{trimester}</div>
+                                <div className={s.progressBar}>
+                                    <div className={s.percentResult}>{result}%</div>
+                                    <StyledLinearProgress variant="determinate" value={result} />
+                                </div>
+                            </div>
+                            <div className={s.secondBlock}>
+                                <Card data={data} title={"Continua a Leggere"} />
+                            </div>
+                        </Fade>
+                        <div className={s.footerLink}>
+                            <a href="https://unimamma.it/blog/">
+                                Per vedere tutti i articoli clicca qui...
+                            </a>
+                        </div>
                     </Grid>
-                </Box>
-            )}
+                </Grid>
+            </Box>
         </div>
     );
 };
