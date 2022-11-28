@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import dayjs from "dayjs";
 
 const mockApiRequest = () =>
     new Promise((resolve) => {
@@ -7,9 +8,9 @@ const mockApiRequest = () =>
                 data: {
                     name: "Marina",
                     surname: "Gherman",
-                    initWeight: 0,
+                    weight: 0,
                     secondWeight: 0,
-                    date: "2022-08-18T21:11:54",
+                    date: dayjs(new Date()),
                     weeks: 0
                 }
             });

@@ -3,24 +3,23 @@ import { IconButton, InputAdornment } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useNavigate } from "react-router-dom";
 import styles from "./styles/WeekInfo.module.scss";
-import s from "./styles/MyWeight.module.scss";
 import { StyledButtonWeight, StyledTextField } from "../../../Styles/theme";
-import { useDispatch, useSelector } from "react-redux";
-import { selectUser, updateUser } from "../../../../store/slice/user-slice";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../../../store/slice/user-slice";
+
+import s from "./styles/MyWeight.module.scss";
 
 const MyWeight = () => {
     const navigate = useNavigate();
-    const dispatch = useDispatch();
     const user = useSelector(selectUser);
 
     const [weight, setWeight] = useState({
-        firstWeight: user.firstWeight,
+        firstWeight: user.weight,
         secondWeight: user.secondWeight
     });
 
-    const changeHandler = (e, newValue) => {
-        setWeight(newValue);
-        dispatch(updateUser({ ...weight, [e.target.name]: e.target.value }));
+    const changeHandler = (e) => {
+        setWeight({ ...weight, [e.target.name]: e.target.value });
     };
 
     function handleSubmit(e) {
